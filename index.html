@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>第12条点検（定期報告）LP 構成案｜横浜建設防火検査（仮）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Noto Sans JP", "Noto Sans CJK JP", sans-serif;
+    color: #222; background: #eceff1;
+  }
+  .page { width: 100%; max-width: 794px; margin: 0 auto; background:#fff; box-shadow:0 0 20px rgba(0,0,0,.08); }
+  .demo-note{ max-width:794px; margin:14px auto 0; padding:8px 14px; font-size:11px; color:#5a6a78; background:#dfe7ee; border-radius:6px; text-align:center;}
+  .sec { padding: 26px 40px; border-bottom: 1px solid #e5e5e5; position: relative; }
+  @media (max-width:560px){ .sec{ padding:20px 18px; } h1{ font-size:22px !important; } .cols4{ flex-wrap:wrap; } .cols4 .card{ flex:1 1 45%; } .risk{ flex-wrap:wrap;} .risk-item{ flex:1 1 100%;} .doctbl{ flex-direction:column;} .steps{ flex-wrap:wrap;} .steps .arrow{ display:none;} .step{ flex:1 1 45%;} .row-img{ flex-wrap:wrap;} }
+  .tag { display:inline-block; font-size:11px; color:#fff; background:#194C6F; padding:2px 10px; border-radius:3px; margin-bottom:8px; letter-spacing:1px;}
+  .tag.blue{ background:#1F5F8B;} .tag.gray{ background:#777;} .tag.green{ background:#2e7d5b;}
+  h1 { font-size: 26px; line-height:1.35; margin-bottom:10px; }
+  h2 { font-size: 20px; line-height:1.35; margin-bottom:10px; color:#1a1a1a;}
+  .lead{ font-size:13px; color:#444; line-height:1.7; }
+  .small{ font-size:11px; color:#777; }
+  .cta-row{ display:flex; gap:12px; margin-top:14px; }
+  .btn{ flex:1; text-align:center; padding:13px 8px; border-radius:6px; font-size:14px; font-weight:bold; }
+  .btn.primary{ background:#194C6F; color:#fff;}
+  .btn.tel{ background:#fff; color:#1F5F8B; border:2px solid #1F5F8B;}
+  .btn.small{ font-size:12px; padding:10px;}
+  .badges{ display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;}
+  .badge{ font-size:10px; background:#f0f0f0; color:#555; padding:4px 9px; border-radius:12px; }
+
+  /* image placeholders */
+  .imgph{ background:#e2e2e2; border:1px dashed #b0b0b0; color:#8a8a8a; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:11px; text-align:center; line-height:1.4;}
+  .imgph .ic{ font-size:15px; margin-bottom:3px;}
+  .imgph.circle{ border-radius:50%;}
+  .hero-img{ width:100%; height:300px; background:#dcdcdc; border:none; border-bottom:3px solid #194C6F; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#8a8a8a; font-size:14px; }
+  .hero-img .ic{ font-size:26px; margin-bottom:6px;}
+
+  .manga{ background:#d7d7d7; border:1px dashed #aaa; border-radius:4px; color:#888; display:flex; align-items:center; justify-content:center; font-size:12px; text-align:center;}
+  .manga small{ font-size:10px;}
+  .manga-grid{ display:flex; flex-direction:column; gap:10px; margin-top:6px;}
+  .manga-row{ display:flex; gap:10px;}
+  .chk{ list-style:none; }
+  .chk li{ font-size:13px; padding:9px 12px; background:#eef3f7; border-left:4px solid #194C6F; margin-bottom:7px; line-height:1.5;}
+  .cols4{ display:flex; gap:10px; margin-top:8px;}
+  .card{ flex:1; border:1px solid #ddd; border-radius:6px; padding:12px 10px; text-align:center; position:relative;}
+  .card.on{ border:2px solid #194C6F; background:#f4f8fb;}
+  .card.off{ background:#f2f2f2; color:#999;}
+  .card .num{ font-size:18px; font-weight:bold; color:#1F5F8B;}
+  .card.off .num{ color:#aaa;}
+  .card h3{ font-size:12.5px; margin:5px 0;}
+  .card p{ font-size:10.5px; color:#555; line-height:1.5; text-align:left;}
+  .card.off p{ color:#999;}
+  .ribbon{ position:absolute; top:-9px; left:50%; transform:translateX(-50%); font-size:9px; color:#fff; padding:1px 8px; border-radius:8px; white-space:nowrap;}
+  .ribbon.y{ background:#2e7d5b;} .ribbon.n{ background:#999;}
+  .note{ background:#f5f7fa; border:1px solid #d5e0ea; border-radius:6px; padding:12px 14px; font-size:11.5px; color:#3a4a5a; line-height:1.6; margin-top:12px;}
+  .risk{ display:flex; gap:12px; margin-top:10px;}
+  .risk-item{ flex:1; border:1px solid #c9d8e3; background:#eef3f7; border-radius:6px; padding:12px; text-align:center;}
+  .risk-item .rt{ font-size:13px; font-weight:bold; color:#194C6F; margin-bottom:8px;}
+  .risk-item p{ font-size:11px; color:#555; line-height:1.55; text-align:left; margin-top:8px;}
+  .steps{ display:flex; gap:6px; margin-top:10px; align-items:stretch;}
+  .step{ flex:1; background:#eef4f1; border:1px solid #cfe0d8; border-radius:6px; padding:10px 8px; font-size:11px; text-align:center; line-height:1.4;}
+  .step b{ display:block; color:#2e7d5b; font-size:12px; margin-bottom:6px;}
+  .arrow{ align-self:center; color:#2e7d5b; font-weight:bold; font-size:14px;}
+  .plist{ margin-top:8px;}
+  .plist li{ font-size:12px; margin-left:18px; margin-bottom:5px; line-height:1.5;}
+
+  /* flow (vertical) */
+  .flow{ margin-top:10px;}
+  .flow-step{ display:flex; gap:12px; align-items:flex-start; margin-bottom:6px;}
+  .flow-no{ flex:none; width:34px; height:34px; border-radius:50%; background:#194C6F; color:#fff; font-weight:bold; display:flex; align-items:center; justify-content:center; font-size:14px;}
+  .flow-body{ flex:1; background:#f6f8fa; border:1px solid #e0e6ec; border-radius:6px; padding:9px 12px;}
+  .flow-body b{ font-size:13px;} .flow-body p{ font-size:11.5px; color:#555; line-height:1.5; margin-top:2px;}
+  .flow-body .who{ font-size:10px; color:#fff; background:#8a97a3; padding:1px 7px; border-radius:8px; margin-left:6px;}
+  .flow-body .who.us{ background:#2e7d5b;}
+  .flow-down{ margin-left:16px; color:#b0bcc7; font-size:13px; line-height:0.7; margin-bottom:6px;}
+
+  /* docs table */
+  .doctbl{ display:flex; gap:14px; margin-top:10px;}
+  .doccol{ flex:1; border:1px solid #ddd; border-radius:6px; overflow:hidden;}
+  .doccol h4{ font-size:13px; background:#194C6F; color:#fff; padding:8px 12px;}
+  .doccol ul{ list-style:none; padding:10px 12px;}
+  .doccol li{ font-size:12px; padding:5px 0 5px 18px; position:relative; border-bottom:1px dotted #e0e0e0; line-height:1.4;}
+  .doccol li:before{ content:"📄"; position:absolute; left:0; font-size:11px;}
+  .doccol li:last-child{ border-bottom:none;}
+
+  .faq{ margin-top:6px;}
+  .faq div{ font-size:12px; padding:8px 0; border-bottom:1px dotted #ccc; }
+  .faq b{ color:#1F5F8B;}
+  .sticky{ background:#333; color:#fff; display:flex; }
+  .sticky div{ flex:1; text-align:center; padding:14px 4px; font-size:12px; font-weight:bold; border-right:1px solid #555;}
+  .sticky div:last-child{ border-right:none;}
+  .secnum{ position:absolute; top:10px; right:14px; font-size:11px; color:#bbb;}
+  .reasons-flex{ display:flex; gap:14px; margin-top:10px; align-items:flex-start;}
+  .reasons{ display:flex; gap:10px; flex-wrap:wrap; flex:1;}
+  .reason{ flex:1 1 45%; font-size:12px; background:#f7f7f7; border-radius:5px; padding:10px; line-height:1.5;}
+  .final{ background:#194C6F; color:#fff;}
+  .final h2{ color:#fff;}
+  .final .lead{ color:#ffe; }
+  .tel-big{ margin-top:12px; font-size:22px; font-weight:bold; text-align:center; letter-spacing:1px;}
+  .row-img{ display:flex; gap:14px; margin-top:12px; align-items:center;}
+</style>
+</head>
+<body>
+<div class="demo-note">これは構成確認用の仮ページです（画像は差し込み予定・グレー枠は漫画パート）。検索エンジンには非表示（noindex）に設定しています。</div>
+<div class="page">
+
+  <!-- ① FV : hero full-width image -->
+  <div class="hero-img">
+    <div class="ic">🖼</div>
+    ヒーロー画像（横幅100%）<br>
+    <small>例：ビル外観／点検中の技術者／非常灯 などの実写・イメージ</small>
+  </div>
+  <div class="sec">
+    <span class="secnum">① ファーストビュー</span>
+    <span class="tag">建物の所有者・管理者／オーナー様へ</span>
+    <h1>特定行政庁から「定期報告」の通知、届いていませんか？</h1>
+    <p class="lead">建築基準法12条の定期報告のうち、<b>特定建築物定期調査・建築設備定期検査・防火設備定期検査</b>に対応。通知が届いてからの<b>対象確認・点検・報告書提出まで、まるごとお任せ</b>いただけます。</p>
+    <div class="cta-row">
+      <div class="btn primary">▶ まずは無料で相談する</div>
+      <div class="btn tel">☎ 電話で相談する</div>
+    </div>
+    <div class="badges">
+      <span class="badge">横浜拠点／東京・川崎・首都圏対応</span>
+      <span class="badge">有資格者による点検</span>
+      <span class="badge">複数物件のオーナー様・管理会社・管理組合に対応</span>
+    </div>
+  </div>
+
+  <!-- ② 問題提起 + 画像 -->
+  <div class="sec">
+    <span class="secnum">② 問題提起</span>
+    <h2>こんなお悩み、ありませんか？</h2>
+    <div class="row-img">
+      <ul class="chk" style="flex:2;">
+        <li>特定行政庁から“定期報告”の通知が届いたが、何をすればいいか分からない</li>
+        <li>所有・管理する建物にどの点検が必要なのか把握できていない</li>
+        <li>相続・購入した物件の報告がきちんと出せているか不安</li>
+        <li>点検で不具合が出たら、また別の業者を探すのが面倒</li>
+        <li>複数の物件を自己管理していて、報告のたびに手間がかかる</li>
+      </ul>
+      <div class="imgph" style="flex:1; height:150px;"><div class="ic">🖼</div>通知書を手に<br>悩む所有者・<br>管理者の画像</div>
+    </div>
+    <p class="small">― ひとつでも当てはまったら、この先の漫画を読んでみてください。</p>
+  </div>
+
+  <!-- ③ 漫画パート -->
+  <div class="sec">
+    <span class="secnum">③ 漫画パート</span>
+    <span class="tag gray">STORY</span>
+    <h2>マンガで分かる｜定期報告の通知を放置した、ある建物オーナーの話</h2>
+    <div class="manga-grid">
+      <div class="manga-row">
+        <div class="manga" style="flex:2; height:150px;">A｜起：相続で建物の所有者に（P1-2）<br><small>※作画イメージ</small></div>
+        <div class="manga" style="flex:1; height:150px;">日常カット</div>
+      </div>
+      <div class="manga-row">
+        <div class="manga" style="flex:1; height:120px;">B｜承：行政庁からの<br>定期報告の通知が届く（P3-4）</div>
+        <div class="manga" style="flex:1; height:120px;">C｜転：放置のリスク（P5）</div>
+      </div>
+      <div class="manga-row">
+        <div class="manga" style="flex:1; height:130px;">D｜転：報告義務と罰則（P6）</div>
+        <div class="manga" style="flex:2; height:130px; background:#b8b8b8;">E｜転：もし火災が…（P7）<br><small>【山場】非常灯が点かず、防火扉も閉まらない</small></div>
+      </div>
+    </div>
+    <div class="cta-row"><div class="btn primary small">中間CTA①｜通知が届いたら、まず無料相談する</div></div>
+    <div class="manga-grid" style="margin-top:12px;">
+      <div class="manga-row">
+        <div class="manga" style="flex:1; height:130px;">F｜結：横浜建設防火検査に相談 → 点検〜報告書提出まで全お任せで解決（P8-9）</div>
+      </div>
+    </div>
+    <div class="cta-row"><div class="btn tel small">CTA②｜あなたの物件も同じかも → まずは無料相談</div></div>
+  </div>
+
+  <!-- ④ 制度の全体像 : 4種のうち3種に対応 -->
+  <div class="sec">
+    <span class="secnum">④ 制度の全体像</span>
+    <span class="tag blue">POINT</span>
+    <h2>12条点検（定期報告）は4種類。当社は昇降機を除く3種に対応します</h2>
+    <p class="lead" style="margin-bottom:2px;">建築基準法12条の定期報告は下記の4種類。このうち<b>昇降機等（エレベーター等）は専門の昇降機業者</b>が担当し、<b>それ以外の3種を当社のような点検業者が担当</b>するのが一般的です。</p>
+    <div class="cols4">
+      <div class="card on">
+        <span class="ribbon y">当社対応</span>
+        <div class="imgph circle" style="width:56px; height:56px; margin:4px auto 6px;"><div class="ic">🖼</div>外壁</div>
+        <div class="num">①</div><h3>特定建築物定期調査</h3><p>敷地・外部・避難施設など建物本体の維持保全を調査</p>
+      </div>
+      <div class="card on">
+        <span class="ribbon y">当社対応</span>
+        <div class="imgph circle" style="width:56px; height:56px; margin:4px auto 6px;"><div class="ic">🖼</div>非常灯</div>
+        <div class="num">②</div><h3>建築設備定期検査</h3><p>換気・排煙・非常用照明・給排水など設備の機能を検査</p>
+      </div>
+      <div class="card on">
+        <span class="ribbon y">当社対応</span>
+        <div class="imgph circle" style="width:56px; height:56px; margin:4px auto 6px;"><div class="ic">🖼</div>防火扉</div>
+        <div class="num">③</div><h3>防火設備定期検査</h3><p>防火扉・防火シャッターなどが適切に閉まるかを検査</p>
+      </div>
+      <div class="card off">
+        <span class="ribbon n">昇降機専門業者</span>
+        <div class="imgph circle" style="width:56px; height:56px; margin:4px auto 6px; background:#e8e8e8;"><div class="ic">🖼</div>EV</div>
+        <div class="num">④</div><h3>昇降機等定期検査</h3><p>エレベーター・エスカレーター等（当社対象外）</p>
+      </div>
+    </div>
+    <div class="note">いずれも<b>有資格者による調査・検査</b>が必要で、結果を<b>特定行政庁（自治体）へ報告する義務</b>があります。対象建築物・規模・報告周期は<b>建物が所在する地域（特定行政庁）で異なります</b>。<span class="small">▶ 制度の詳しい解説はこちら（/inspection/）</span></div>
+  </div>
+
+  <!-- ⑤ 申込フロー : 案内通知起点 -->
+  <div class="sec">
+    <span class="secnum">⑤ ご依頼の流れ</span>
+    <span class="tag blue">FLOW</span>
+    <h2>特定行政庁からの「通知」が届いてから、報告書提出まで</h2>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-no">1</div>
+        <div class="flow-body"><b>特定行政庁から通知が届く<span class="who">所有者・管理者</span></b><p>「この建物は◯◯の点検・報告が必要です」という案内通知が、所有者・管理者あてに届きます。※内容は建物の地域・用途で異なります。</p></div>
+      </div>
+      <div class="flow-down">▼</div>
+      <div class="flow-step">
+        <div class="flow-no">2</div>
+        <div class="flow-body"><b>当社にご相談・お問い合わせ<span class="who us">当社</span></b><p>通知の内容をもとに、どの点検が必要かを一緒に確認します。通知書をお手元にご相談ください。</p></div>
+      </div>
+      <div class="flow-down">▼</div>
+      <div class="flow-step">
+        <div class="flow-no">3</div>
+        <div class="flow-body"><b>調査・検査の実施（有資格者）<span class="who us">当社</span></b><p>通知に沿って、特定建築物・建築設備・防火設備の調査・検査を実施します。</p></div>
+      </div>
+      <div class="flow-down">▼</div>
+      <div class="flow-step">
+        <div class="flow-no">4</div>
+        <div class="flow-body"><b>報告書の作成・特定行政庁へ提出<span class="who us">当社</span></b><p>結果を報告書にまとめ、所有者・管理者名義での提出までサポートします。</p></div>
+      </div>
+      <div class="flow-down">▼</div>
+      <div class="flow-step">
+        <div class="flow-no">5</div>
+        <div class="flow-body"><b>「要是正」があれば是正・修繕<span class="who us">当社</span></b><p>不具合が見つかった場合も、非常灯交換などの是正工事までそのまま対応できます。</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑥ 必要書類 -->
+  <div class="sec">
+    <span class="secnum">⑥ 必要書類</span>
+    <span class="tag blue">DOCUMENTS</span>
+    <h2>ご依頼に必要な書類（事前にご準備いただくとスムーズです）</h2>
+    <div class="doctbl">
+      <div class="doccol">
+        <h4>初回のご依頼の場合</h4>
+        <ul>
+          <li>確認申請書</li>
+          <li>確認済証</li>
+          <li>検査済証</li>
+          <li>意匠図面（平面図・面積表など）</li>
+          <li>設備図面</li>
+          <li>消防設備点検報告書</li>
+          <li>所有者・管理者の情報</li>
+        </ul>
+      </div>
+      <div class="doccol">
+        <h4>2回目以降のご依頼の場合</h4>
+        <ul>
+          <li>前回の報告書（特定建築物・建築設備・防火設備）</li>
+          <li>意匠図面・設備図面</li>
+          <li>所有者・管理者の情報</li>
+        </ul>
+      </div>
+    </div>
+    <p class="small" style="margin-top:8px;">※お手元にない書類があってもご相談ください。可能な範囲でお調べ・お手伝いいたします。</p>
+  </div>
+
+  <!-- ⑦ 放置するとどうなる -->
+  <div class="sec">
+    <span class="secnum">⑦ 放置リスク</span>
+    <span class="tag">RISK</span>
+    <h2>通知を放置すると、どうなる？</h2>
+    <div class="risk">
+      <div class="risk-item">
+        <div class="rt">① 特定建築物調査を放置</div>
+        <div class="imgph" style="height:80px;"><div class="ic">🖼</div>外壁剥落・<br>劣化の写真</div>
+        <p>外壁の浮き・剥落、避難通路の閉塞などを見逃す → 外壁剥落による通行人事故などのおそれ。維持保全は所有者・管理者の義務です。</p>
+      </div>
+      <div class="risk-item">
+        <div class="rt">② 建築設備検査を放置</div>
+        <div class="imgph" style="height:80px;"><div class="ic">🖼</div>点灯しない<br>非常灯の写真</div>
+        <p>非常用照明・排煙・換気の作動不良を見逃す → 停電・火災時に非常灯が点かず避難できない、排煙が効かないおそれ。</p>
+      </div>
+      <div class="risk-item">
+        <div class="rt">③ 防火設備検査を放置</div>
+        <div class="imgph" style="height:80px;"><div class="ic">🖼</div>防火扉・<br>シャッターの写真</div>
+        <p>防火扉・シャッターの作動不良を見逃す → 火災時に閉まらず、炎や煙の拡大を止められないおそれ。</p>
+      </div>
+    </div>
+    <div class="note" style="background:#fdf3ec; border-color:#e5c4a5; color:#7a4a20;"><b>＋法的リスク：</b>定期報告を怠ると建築基準法101条により<b>100万円以下の罰金</b>が科される場合があります。また未報告のまま事故が起きれば、所有者・管理者として<b>損害賠償等を問われるおそれ</b>があります。※運用・時期は自治体により異なります。</div>
+  </div>
+
+  <!-- ⑧ 解決策 ワンストップ -->
+  <div class="sec">
+    <span class="secnum">⑧ 解決策（主役）</span>
+    <span class="tag green">SOLUTION</span>
+    <h2>3種の調査・検査から報告・是正まで、全部ワンストップ</h2>
+    <div class="steps">
+      <div class="step"><b>STEP1</b><div class="imgph" style="height:44px; margin-bottom:5px;"><span class="ic">🖼</span></div>通知内容の確認<br>(どの点検が必要か)</div>
+      <div class="arrow">▶</div>
+      <div class="step"><b>STEP2</b><div class="imgph" style="height:44px; margin-bottom:5px;"><span class="ic">🖼</span></div>点検・調査<br>(有資格者)</div>
+      <div class="arrow">▶</div>
+      <div class="step"><b>STEP3</b><div class="imgph" style="height:44px; margin-bottom:5px;"><span class="ic">🖼</span></div>報告書作成<br>行政へ提出サポート</div>
+      <div class="arrow">▶</div>
+      <div class="step"><b>STEP4</b><div class="imgph" style="height:44px; margin-bottom:5px;"><span class="ic">🖼</span></div>是正・修繕<br>非常灯交換など</div>
+    </div>
+    <p class="lead" style="margin-top:12px;">3種を別々の会社に頼む必要も、要是正が出てから業者を探す手間もゼロ。（昇降機等は専門業者をご案内できます）</p>
+    <ul class="plist">
+      <li>検査だけで終わらせない実務対応（その場で簡易調整も）</li>
+      <li>不具合の多い<b>非常用照明（非常灯）の交換工事</b>まで対応</li>
+      <li><b>複数物件はまとめて割引</b>（自己管理のオーナー様・管理会社・管理組合向け）</li>
+    </ul>
+    <div class="cta-row">
+      <div class="btn primary">▶ 無料で相談する</div>
+      <div class="btn tel">☎ 電話で相談する</div>
+    </div>
+  </div>
+
+  <!-- ⑨ 選ばれる理由 -->
+  <div class="sec">
+    <span class="secnum">⑨ 選ばれる理由・実績</span>
+    <h2>横浜建設防火検査が選ばれる理由</h2>
+    <div class="reasons" style="margin-top:6px;">
+      <div class="reason"><b>有資格者による確かな点検</b><br>特定建築物調査員／建築設備検査員／防火設備検査員 等</div>
+      <div class="reason"><b>横浜拠点・東京・川崎・首都圏対応</b></div>
+      <div class="reason" style="flex-basis:100%;"><b>所有者・管理者の手間を最小化するワンストップ体制</b>（自己管理の複数物件オーナー様も歓迎）</div>
+    </div>
+    <p class="small" style="margin-top:12px;">＜施工・点検実績の写真＞複合施設・オフィスビル・マンション・百貨店・中小ビル・小中学校・工場・個人医院 など</p>
+    <div class="row-img" style="margin-top:6px;">
+      <div class="imgph" style="flex:1; height:90px;"><div class="ic">🖼</div>実績写真1</div>
+      <div class="imgph" style="flex:1; height:90px;"><div class="ic">🖼</div>実績写真2</div>
+      <div class="imgph" style="flex:1; height:90px;"><div class="ic">🖼</div>実績写真3</div>
+      <div class="imgph" style="flex:1; height:90px;"><div class="ic">🖼</div>実績写真4</div>
+    </div>
+  </div>
+
+  <!-- ⑩ FAQ -->
+  <div class="sec">
+    <span class="secnum">⑩ FAQ</span>
+    <h2>よくある質問</h2>
+    <div class="faq">
+      <div><b>Q.</b> 特定行政庁から通知が届いた／うちの建物はどの点検が対象？</div>
+      <div><b>Q.</b> 昇降機（エレベーター）の点検も頼める？（→ 専門業者をご案内）</div>
+      <div><b>Q.</b> 費用はどれくらい？（→ まずはお気軽にご相談ください）</div>
+      <div><b>Q.</b> 必要書類が手元にない場合は？</div>
+      <div><b>Q.</b> 報告書は所有者・管理者名義で提出してもらえる？</div>
+      <div><b>Q.</b> 要是正が見つかったら、工事も頼める？</div>
+      <div><b>Q.</b> 対応エリアは？／複数物件をまとめて頼める？（→割引）</div>
+    </div>
+  </div>
+
+  <!-- ⑪ 最終CTA -->
+  <div class="sec final">
+    <span class="secnum" style="color:#9cf;">⑪ 最終CTA</span>
+    <h2>通知が届いたら、まずはご相談ください。</h2>
+    <p class="lead">どの点検が対象か、必要書類は何か、確認だけでもOK。所有者・管理者・オーナー様、管理会社・管理組合いずれもお気軽に。しつこい営業はありません。</p>
+    <div class="cta-row">
+      <div class="btn" style="background:#fff; color:#194C6F;">▶ 無料で相談・お問い合わせ</div>
+    </div>
+    <div class="tel-big">☎ 000-0000-0000（受付 9:00〜18:00）</div>
+    <p class="small" style="color:#dbe8f2; text-align:center; margin-top:6px;">横浜・川崎・東京ほか首都圏対応</p>
+  </div>
+
+  <!-- ⑫ 追従CTA -->
+  <div class="sticky">
+    <div>無料相談・お問い合わせ</div>
+    <div>☎ 電話する</div>
+  </div>
+
+</div>
+</body>
+</html>
