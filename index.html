@@ -61,30 +61,33 @@ img{max-width:100%;display:block;}
 @media(max-width:860px){ .hero{background-position:center;} .hero .deco{background:linear-gradient(180deg,rgba(10,28,44,.9),rgba(15,40,62,.78));} .hero-copy{max-width:none;} }
 .hero .tagline{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:7px 16px;font-size:13px;font-weight:700;letter-spacing:.04em;margin-bottom:22px;}
 .hero h1{font-size:clamp(28px,4.6vw,46px);font-weight:900;line-height:1.32;letter-spacing:.01em;margin-bottom:20px;text-shadow:0 2px 14px rgba(0,0,0,.18);}
+/* marker container: spans from before 「 to after 」 */
 .hero h1 .mark{
   position:relative;
   display:inline-block;
-  font-size:1.3em;
-  font-weight:900;
-  line-height:1;
-  padding:0 .08em;
-  vertical-align:-0.06em;
-  color:#fff;
   z-index:0;
 }
-/* yellow marker drawn left→right behind the text */
+/* yellow marker drawn left→right behind the text, shifted slightly down */
 .hero h1 .mark::before{
   content:"";
   position:absolute;
   left:0; right:0;
-  bottom:0.04em;
-  height:0.62em;
+  bottom:-0.12em;          /* shift marker below the text */
+  height:0.55em;
   background:#ffd400;
   border-radius:2px;
   transform:scaleX(0);
   transform-origin:left center;
   z-index:-1;
   animation:markerSweep .7s cubic-bezier(.22,.61,.36,1) .5s forwards;
+}
+/* enlarged 定期報告 with hard (no-blur) orange shadow */
+.hero h1 .mark .big{
+  font-size:1.3em;
+  font-weight:900;
+  line-height:1;
+  color:#fff;
+  text-shadow:3px 3px 0 #ff6a00;
 }
 @keyframes markerSweep{ to{ transform:scaleX(1); } }
 @media(prefers-reduced-motion:reduce){
@@ -258,7 +261,7 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <span class="tagline">建物の所有者・管理者／オーナー様へ</span>
-      <h1>特定行政庁から<br>「<span class="mark">定期報告</span>」の通知、<br>届いていませんか？</h1>
+      <h1>特定行政庁から<br><span class="mark">「<span class="big">定期報告</span>」</span>の通知、<br>届いていませんか？</h1>
       <p class="sub">建築基準法12条の定期報告のうち、<b>特定建築物定期調査・建築設備定期検査・防火設備定期検査</b>に対応。通知が届いてからの<b>対象確認・点検・報告書提出まで、まるごとお任せ</b>いただけます。</p>
       <div class="cta-pair">
         <a href="#contact" class="btn btn-main">▶ まずは無料で相談する</a>
