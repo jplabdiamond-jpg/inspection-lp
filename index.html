@@ -83,16 +83,18 @@ img{max-width:100%;display:block;}
 
 /* ---------- MANGA ---------- */
 .manga-sec{background:linear-gradient(180deg,#eef4f9,#f4f8fb);}
-.manga-note{display:inline-block;font-size:12.5px;color:var(--gray);background:#fff;border:1px dashed #c4d2de;border-radius:999px;padding:6px 15px;margin-bottom:26px;}
-.manga-grid{display:flex;flex-direction:column;gap:14px;}
-.mrow{display:flex;gap:14px;}
-@media(max-width:640px){ .mrow{flex-direction:column;} }
-.mpanel{background:#dde5ec;border:1px solid #cbd6e0;border-radius:12px;min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#6f8296;padding:16px;position:relative;overflow:hidden;}
-.mpanel::before{content:"MANGA";position:absolute;top:9px;left:12px;font-size:9px;letter-spacing:.2em;color:#a9b8c6;font-weight:700;}
-.mpanel b{font-size:14px;color:#4f6274;font-weight:700;}
-.mpanel small{font-size:11.5px;margin-top:4px;}
-.mpanel.climax{background:#c9d3dc;color:#4a5c6d;}
-.mid-cta{margin:20px 0;}
+.manga-strip{max-width:760px;margin:8px auto 0;display:flex;flex-direction:column;gap:22px;}
+.mitem{position:relative;}
+.mframe{border-radius:14px;overflow:hidden;box-shadow:0 12px 30px rgba(20,58,85,.16);border:1px solid #dbe4ec;background:#fff;}
+.mframe img{width:100%;display:block;}
+.mcap{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.mcap .mstep{flex:none;font-size:12px;font-weight:800;color:#fff;background:var(--navy);padding:4px 12px;border-radius:999px;letter-spacing:.03em;}
+.mcap .mttl{font-size:14px;font-weight:700;color:var(--navy);}
+.mitem.climax .mframe{box-shadow:0 14px 36px rgba(180,40,40,.22);border-color:#e6c3c3;}
+.mitem.climax .mstep{background:#b83535;}
+.msum{margin-top:6px;}
+.msum .mcap .mstep{background:var(--blue);}
+.mid-cta{margin:26px auto;max-width:760px;}
 .mid-cta .btn{width:100%;}
 
 /* ---------- 4種 cards ---------- */
@@ -273,26 +275,37 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
   <div class="wrap">
     <span class="eyebrow">Story</span>
     <h2 class="h-sec">マンガで分かる｜定期報告の通知を<br class="sp-br">放置した、ある建物オーナーの話</h2>
-    <div style="height:8px"></div>
-    <span class="manga-note">▼ 以下グレー枠は漫画（作画）が入る箇所です</span>
-    <div class="manga-grid">
-      <div class="mrow">
-        <div class="mpanel" style="flex:2;"><b>A｜起：相続で建物の所有者に</b><small>P1-2</small></div>
-        <div class="mpanel" style="flex:1;"><b>日常カット</b></div>
+    <div class="manga-strip">
+      <div class="mitem">
+        <div class="mcap"><span class="mstep">起</span><span class="mttl">相続で、ある建物のオーナーに</span></div>
+        <div class="mframe"><img src="m1.jpg" alt="起：相続でテナントビルのオーナーになった田村さん" loading="lazy"></div>
       </div>
-      <div class="mrow">
-        <div class="mpanel" style="flex:1;"><b>B｜承：行政庁から定期報告の通知が届く</b><small>P3-4</small></div>
-        <div class="mpanel" style="flex:1;"><b>C｜転：放置のリスク</b><small>P5</small></div>
+      <div class="mitem">
+        <div class="mcap"><span class="mstep">承</span><span class="mttl">特定行政庁から「定期報告」の通知が届く</span></div>
+        <div class="mframe"><img src="m2.jpg" alt="承：定期報告の通知が届き、12条点検が3つの調査・検査の総称だと知る" loading="lazy"></div>
       </div>
-      <div class="mrow">
-        <div class="mpanel" style="flex:1;"><b>D｜転：報告義務と罰則</b><small>P6</small></div>
-        <div class="mpanel climax" style="flex:2;"><b>E｜転：もし火災が…</b><small>【山場】非常灯が点かず、防火扉も閉まらない（P7）</small></div>
+      <div class="mitem">
+        <div class="mcap"><span class="mstep">転</span><span class="mttl">放置すると…3つのリスクと罰則</span></div>
+        <div class="mframe"><img src="m3.jpg" alt="転：3つの調査・検査を放置したときのリスクと、未提出・虚偽報告の罰則" loading="lazy"></div>
+      </div>
+      <div class="mitem climax">
+        <div class="mcap"><span class="mstep">転・山場</span><span class="mttl">もし、火災が起きたら――</span></div>
+        <div class="mframe"><img src="m4.jpg" alt="転の山場：防火設備が作動せず非常灯も点かない火災の想像シーン" loading="lazy"></div>
       </div>
     </div>
     <div class="mid-cta"><a href="#contact" class="btn btn-main">通知が届いたら、まず無料で相談する</a></div>
-    <div class="manga-grid">
-      <div class="mrow">
-        <div class="mpanel" style="flex:1;min-height:130px;"><b>F｜結：横浜建設防火検査に相談 → 点検〜報告書提出まで全お任せで解決</b><small>P8-9</small></div>
+    <div class="manga-strip">
+      <div class="mitem">
+        <div class="mcap"><span class="mstep">結</span><span class="mttl">横浜建設防火検査に相談 → まとめてお任せ</span></div>
+        <div class="mframe"><img src="m5.jpg" alt="結：横浜建設防火検査に相談し、3つともまとめて依頼できると分かる" loading="lazy"></div>
+      </div>
+      <div class="mitem">
+        <div class="mcap"><span class="mstep">結</span><span class="mttl">点検・報告・是正まで完了、肩の荷が下りた</span></div>
+        <div class="mframe"><img src="m6.jpg" alt="結：点検・報告書提出・是正工事まで完了し、安心する田村さん" loading="lazy"></div>
+      </div>
+      <div class="mitem msum">
+        <div class="mcap"><span class="mstep">まとめ</span><span class="mttl">12条点検まとめ｜3つをまとめて相談できます</span></div>
+        <div class="mframe"><img src="m7.jpg" alt="まとめ：12条点検の3つの調査・検査、流れ、罰則リスク、まとめて無料相談" loading="lazy"></div>
       </div>
     </div>
   </div>
