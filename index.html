@@ -50,13 +50,15 @@ img{max-width:100%;display:block;}
 .cta-pair .btn{flex:1;min-width:220px;}
 
 /* ---------- HERO ---------- */
-.hero{position:relative;background:linear-gradient(150deg,#0f3350 0%,var(--navy) 55%,#1b567d 100%);color:#fff;overflow:hidden;padding:70px 0 120px;}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:70px;background:var(--bg);clip-path:polygon(0 100%,100% 100%,100% 0);}
-.hero .deco{position:absolute;inset:0;opacity:.14;background:
-  radial-gradient(circle at 85% 20%,#7fd4ff 0,transparent 40%),
-  radial-gradient(circle at 15% 85%,#3a86c4 0,transparent 42%);}
-.hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;}
-@media(max-width:860px){ .hero-grid{grid-template-columns:1fr;gap:26px;} }
+.hero{position:relative;color:#fff;overflow:hidden;padding:96px 0 128px;
+  background-image:url('herobg.jpg');background-size:cover;background-position:center right;}
+/* left-dark gradient overlay for text legibility */
+.hero .deco{position:absolute;inset:0;background:
+  linear-gradient(100deg, rgba(10,28,44,.92) 0%, rgba(15,40,62,.82) 38%, rgba(20,58,85,.42) 62%, rgba(20,58,85,.12) 100%);}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:70px;background:var(--bg);clip-path:polygon(0 100%,100% 100%,100% 0);z-index:2;}
+.hero-grid{position:relative;z-index:1;}
+.hero-copy{max-width:600px;}
+@media(max-width:860px){ .hero{background-position:center;} .hero .deco{background:linear-gradient(180deg,rgba(10,28,44,.9),rgba(15,40,62,.78));} .hero-copy{max-width:none;} }
 .hero .tagline{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:7px 16px;font-size:13px;font-weight:700;letter-spacing:.04em;margin-bottom:22px;}
 .hero h1{font-size:clamp(28px,4.6vw,46px);font-weight:900;line-height:1.32;letter-spacing:.01em;margin-bottom:20px;text-shadow:0 2px 14px rgba(0,0,0,.18);}
 .hero h1 .mark{background:linear-gradient(transparent 62%,rgba(127,212,255,.45) 62%);padding:0 2px;}
@@ -64,8 +66,6 @@ img{max-width:100%;display:block;}
 .hero .cta-pair .btn-tel{background:rgba(255,255,255,.95);}
 .hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
 .hero-badges span{font-size:12.5px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:7px 13px;border-radius:8px;color:#eaf3fa;}
-.hero-visual{aspect-ratio:4/3;border-radius:18px;overflow:hidden;border:3px solid rgba(255,255,255,.35);box-shadow:0 18px 40px rgba(0,0,0,.28);background:#0f2a40;}
-.hero-visual img{width:100%;height:100%;object-fit:cover;display:block;}
 
 /* placeholder shared */
 .ph{background:linear-gradient(135deg,#eef2f6,#e2e9f0);border:1px solid #d3dde7;color:#93a4b3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;font-size:12px;border-radius:12px;}
@@ -241,9 +241,6 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
         <span>有資格者による点検</span>
         <span>複数物件のオーナー様・管理会社・管理組合に対応</span>
       </div>
-    </div>
-    <div class="hero-visual">
-      <img src="hero.jpg" alt="特定行政庁から届いた定期報告の通知を見て驚く建物オーナー">
     </div>
   </div>
 </header>
