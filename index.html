@@ -111,14 +111,17 @@ img{max-width:100%;display:block;}
 .check p{font-size:15px;font-weight:600;color:var(--ink);}
 .prob-img{height:100%;min-height:280px;}
 
-/* notice section: envelope photo as faint background */
-.notice-sec{position:relative;overflow:hidden;}
-.notice-sec::before{content:"";position:absolute;inset:0;z-index:0;
-  background:url('notice.jpg') center/cover no-repeat;
-  opacity:.28;}
-.notice-sec::after{content:"";position:absolute;inset:0;z-index:0;
-  background:linear-gradient(180deg,rgba(244,248,251,.55),rgba(244,248,251,.78));}
-.notice-sec .wrap{position:relative;z-index:1;}
+/* notice section intro: text left + circular envelope photo right */
+.notice-intro{display:flex;gap:32px;align-items:center;margin-bottom:8px;}
+@media(max-width:820px){ .notice-intro{flex-direction:column;gap:20px;text-align:center;} }
+.notice-intro .n-text{flex:1;}
+.notice-circle{flex:none;width:230px;height:230px;border-radius:50%;overflow:hidden;position:relative;
+  border:6px solid #fff;box-shadow:0 14px 34px rgba(20,58,85,.20);}
+@media(max-width:820px){ .notice-circle{width:200px;height:200px;} }
+.notice-circle img{width:100%;height:100%;object-fit:cover;display:block;}
+.notice-circle .ring{position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--sky);opacity:.35;pointer-events:none;}
+.notice-circle .badge{position:absolute;left:50%;bottom:-1px;transform:translateX(-50%);
+  background:var(--navy);color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 10px rgba(0,0,0,.18);}
 .notice-credit{font-size:11px;color:#8a97a3;margin-top:16px;text-align:right;}
 
 /* notice + risk cards (縦並び) */
@@ -303,11 +306,20 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
 </header>
 
 <!-- PROBLEM -->
-<section class="section notice-sec">
+<section class="section">
   <div class="wrap">
-    <span class="eyebrow">Check</span>
-    <h2 class="h-sec">こんな通知が<span class="accent">届いていませんか？</span></h2>
-    <p class="lead">「定期報告」の通知は、建物の<b>所有者・管理者（オーナー様・管理会社・管理組合）</b>あてに届き、報告も所有者・管理者名義で行います。対象は下の3種類の調査・検査。放置すると、それぞれ次のようなリスクがあります。</p>
+    <div class="notice-intro">
+      <div class="n-text">
+        <span class="eyebrow">Check</span>
+        <h2 class="h-sec">こんな通知が<span class="accent">届いていませんか？</span></h2>
+        <p class="lead">「定期報告」の通知は、建物の<b>所有者・管理者（オーナー様・管理会社・管理組合）</b>あてに届き、報告も所有者・管理者名義で行います。対象は下の3種類の調査・検査。放置すると、それぞれ次のようなリスクがあります。</p>
+      </div>
+      <figure class="notice-circle">
+        <img src="notice.jpg" alt="特定行政庁から所有者・管理者あてに届く「建築基準法第12条 定期報告について（未提出のお知らせ）」の通知封筒サンプル">
+        <span class="ring"></span>
+        <span class="badge">通知イメージ</span>
+      </figure>
+    </div>
     <div class="notice-list">
       <div class="ncard">
         <div class="n-left">
@@ -341,7 +353,7 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
       </div>
     </div>
     <p class="lead" style="margin-top:24px;text-align:center;">＋ 定期報告を怠ると、建築基準法により<b>100万円以下の罰金</b>が科される場合があります。<br class="sp-br">通知が届いたら、所有者・管理者・オーナー様いずれもまずはご相談ください。</p>
-    <p class="notice-credit">背景：特定行政庁から届く通知の封筒イメージ（サンプル／自治体により様式は異なります）</p>
+    <p class="notice-credit">※画像は通知封筒のサンプルです。自治体により様式・色・宛名は異なります。</p>
   </div>
 </section>
 
