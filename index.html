@@ -118,12 +118,13 @@ img{max-width:100%;display:block;}
 .ncard .n-left{flex:1.05;padding:20px 22px;border-right:1px solid var(--line);position:relative;}
 @media(max-width:680px){ .ncard .n-left{border-right:none;border-bottom:1px solid var(--line);} }
 .ncard .n-left::before{content:"通知";position:absolute;top:16px;right:16px;font-size:10px;font-weight:800;letter-spacing:.08em;color:#fff;background:var(--blue);padding:3px 9px;border-radius:6px;}
-.ncard .n-no{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:var(--navy);color:#fff;font-weight:800;font-size:15px;margin-bottom:10px;}
-.ncard .n-title{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:6px;line-height:1.4;}
+.ncard .n-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.ncard .n-no{flex:none;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:var(--navy);color:#fff;font-weight:800;font-size:15px;}
+.ncard .n-title{font-size:17px;font-weight:800;color:var(--navy);line-height:1.35;}
 .ncard .n-target{font-size:13px;color:var(--gray);}
 .ncard .n-right{flex:1;padding:20px 22px;background:#fbf4f2;display:flex;flex-direction:column;justify-content:center;}
-.ncard .n-risk-label{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:#b4441e;margin-bottom:6px;}
-.ncard .n-risk-label::before{content:"⚠";font-size:14px;}
+.ncard .n-risk-label{display:inline-flex;align-items:center;gap:7px;font-size:17px;font-weight:900;color:#c0392b;margin-bottom:8px;}
+.ncard .n-risk-label::before{content:"⚠";font-size:20px;}
 .ncard .n-risk{font-size:14px;color:#5a4038;line-height:1.6;}
 
 /* ---------- MANGA ---------- */
@@ -276,7 +277,7 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <span class="tagline">建物の所有者・管理者／オーナー様へ</span>
-      <h1>特定行政庁から<br><span class="mark">「<span class="big">定期報告</span>」</span>の通知、<br>届いていませんか？</h1>
+      <h1>特定行政庁から<br>建築基準法12条の<span class="mark">「<span class="big">定期報告</span>」</span>通知、<br>届いていませんか？</h1>
       <p class="sub">建築基準法12条の定期報告のうち、<b>特定建築物定期調査・建築設備定期検査・防火設備定期検査</b>に対応。通知が届いてからの<b>対象確認・点検・報告書提出まで、まるごとお任せ</b>いただけます。</p>
       <div class="cta-pair">
         <a href="#contact" class="btn btn-main">▶ まずは無料で相談する</a>
@@ -296,12 +297,11 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
   <div class="wrap">
     <span class="eyebrow">Check</span>
     <h2 class="h-sec">こんな通知が<span class="accent">届いていませんか？</span></h2>
-    <p class="lead">特定行政庁から届く「定期報告」の通知は、下の3種類の調査・検査が対象。放置すると、それぞれ次のようなリスクがあります。</p>
+    <p class="lead">「定期報告」の通知は、建物の<b>所有者・管理者（オーナー様・管理会社・管理組合）</b>あてに届き、報告も所有者・管理者名義で行います。対象は下の3種類の調査・検査。放置すると、それぞれ次のようなリスクがあります。</p>
     <div class="notice-list">
       <div class="ncard">
         <div class="n-left">
-          <span class="n-no">1</span>
-          <div class="n-title">特定建築物定期調査 の通知</div>
+          <div class="n-head"><span class="n-no">1</span><div class="n-title">特定建築物定期調査 の通知</div></div>
           <div class="n-target">対象：敷地・外壁・避難施設など、建物本体</div>
         </div>
         <div class="n-right">
@@ -311,8 +311,7 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
       </div>
       <div class="ncard">
         <div class="n-left">
-          <span class="n-no">2</span>
-          <div class="n-title">建築設備定期検査 の通知</div>
+          <div class="n-head"><span class="n-no">2</span><div class="n-title">建築設備定期検査 の通知</div></div>
           <div class="n-target">対象：換気・排煙・非常用照明・給排水など</div>
         </div>
         <div class="n-right">
@@ -322,8 +321,7 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
       </div>
       <div class="ncard">
         <div class="n-left">
-          <span class="n-no">3</span>
-          <div class="n-title">防火設備定期検査 の通知</div>
+          <div class="n-head"><span class="n-no">3</span><div class="n-title">防火設備定期検査 の通知</div></div>
           <div class="n-target">対象：防火扉・防火シャッターなど</div>
         </div>
         <div class="n-right">
@@ -332,7 +330,7 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
         </div>
       </div>
     </div>
-    <p class="lead" style="margin-top:24px;text-align:center;">＋ 定期報告を怠ると、建築基準法により<b>100万円以下の罰金</b>が科される場合があります。<br class="sp-br">通知が届いたら、まずはご相談ください。</p>
+    <p class="lead" style="margin-top:24px;text-align:center;">＋ 定期報告を怠ると、建築基準法により<b>100万円以下の罰金</b>が科される場合があります。<br class="sp-br">通知が届いたら、所有者・管理者・オーナー様いずれもまずはご相談ください。</p>
   </div>
 </section>
 
@@ -340,37 +338,37 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
 <section class="section manga-sec">
   <div class="wrap">
     <span class="eyebrow">Story</span>
-    <h2 class="h-sec">マンガで分かる｜定期報告の通知を<br class="sp-br">放置した、ある建物オーナーの話</h2>
+    <h2 class="h-sec">マンガで分かる<br>｜定期報告の通知を放置した、ある建物オーナーの話</h2>
     <div class="manga-strip">
       <div class="mitem">
-        <div class="mcap"><span class="mstep">起</span><span class="mttl">相続で、ある建物のオーナーに</span></div>
+        <div class="mcap"><span class="mttl">相続で、ある建物のオーナーに</span></div>
         <div class="mframe"><img src="m1.jpg" alt="起：相続でテナントビルのオーナーになった田村さん" loading="lazy"></div>
       </div>
       <div class="mitem">
-        <div class="mcap"><span class="mstep">承</span><span class="mttl">特定行政庁から「定期報告」の通知が届く</span></div>
+        <div class="mcap"><span class="mttl">特定行政庁から「定期報告」の通知が届く</span></div>
         <div class="mframe"><img src="m2.jpg" alt="承：定期報告の通知が届き、12条点検が3つの調査・検査の総称だと知る" loading="lazy"></div>
       </div>
       <div class="mitem">
-        <div class="mcap"><span class="mstep">転</span><span class="mttl">放置すると…3つのリスクと罰則</span></div>
+        <div class="mcap"><span class="mttl">放置すると…3つのリスクと罰則</span></div>
         <div class="mframe"><img src="m3.jpg" alt="転：3つの調査・検査を放置したときのリスクと、未提出・虚偽報告の罰則" loading="lazy"></div>
       </div>
       <div class="mitem climax">
-        <div class="mcap"><span class="mstep">転・山場</span><span class="mttl">もし、火災が起きたら――</span></div>
+        <div class="mcap"><span class="mttl">もし、火災が起きたら――</span></div>
         <div class="mframe"><img src="m4.jpg" alt="転の山場：防火設備が作動せず非常灯も点かない火災の想像シーン" loading="lazy"></div>
       </div>
     </div>
     <div class="mid-cta"><a href="#contact" class="btn btn-main">通知が届いたら、まず無料で相談する</a></div>
     <div class="manga-strip">
       <div class="mitem">
-        <div class="mcap"><span class="mstep">結</span><span class="mttl">横浜建設防火検査に相談 → まとめてお任せ</span></div>
+        <div class="mcap"><span class="mttl">横浜建設防火検査に相談 → まとめてお任せ</span></div>
         <div class="mframe"><img src="m5.jpg" alt="結：横浜建設防火検査に相談し、3つともまとめて依頼できると分かる" loading="lazy"></div>
       </div>
       <div class="mitem">
-        <div class="mcap"><span class="mstep">結</span><span class="mttl">点検・報告・是正まで完了、肩の荷が下りた</span></div>
+        <div class="mcap"><span class="mttl">点検・報告・是正まで完了、肩の荷が下りた</span></div>
         <div class="mframe"><img src="m6.jpg" alt="結：点検・報告書提出・是正工事まで完了し、安心する田村さん" loading="lazy"></div>
       </div>
       <div class="mitem msum">
-        <div class="mcap"><span class="mstep">まとめ</span><span class="mttl">12条点検まとめ｜3つをまとめて相談できます</span></div>
+        <div class="mcap"><span class="mttl">12条点検まとめ｜3つをまとめて相談できます</span></div>
         <div class="mframe"><img src="m7.jpg" alt="まとめ：12条点検の3つの調査・検査、流れ、罰則リスク、まとめて無料相談" loading="lazy"></div>
       </div>
     </div>
