@@ -111,6 +111,21 @@ img{max-width:100%;display:block;}
 .check p{font-size:15px;font-weight:600;color:var(--ink);}
 .prob-img{height:100%;min-height:280px;}
 
+/* notice + risk cards (縦並び) */
+.notice-list{display:flex;flex-direction:column;gap:16px;margin-top:32px;}
+.ncard{display:flex;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-s);}
+@media(max-width:680px){ .ncard{flex-direction:column;} }
+.ncard .n-left{flex:1.05;padding:20px 22px;border-right:1px solid var(--line);position:relative;}
+@media(max-width:680px){ .ncard .n-left{border-right:none;border-bottom:1px solid var(--line);} }
+.ncard .n-left::before{content:"通知";position:absolute;top:16px;right:16px;font-size:10px;font-weight:800;letter-spacing:.08em;color:#fff;background:var(--blue);padding:3px 9px;border-radius:6px;}
+.ncard .n-no{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:var(--navy);color:#fff;font-weight:800;font-size:15px;margin-bottom:10px;}
+.ncard .n-title{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:6px;line-height:1.4;}
+.ncard .n-target{font-size:13px;color:var(--gray);}
+.ncard .n-right{flex:1;padding:20px 22px;background:#fbf4f2;display:flex;flex-direction:column;justify-content:center;}
+.ncard .n-risk-label{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:#b4441e;margin-bottom:6px;}
+.ncard .n-risk-label::before{content:"⚠";font-size:14px;}
+.ncard .n-risk{font-size:14px;color:#5a4038;line-height:1.6;}
+
 /* ---------- MANGA ---------- */
 .manga-sec{background:linear-gradient(180deg,#eef4f9,#f4f8fb);}
 .manga-strip{max-width:760px;margin:8px auto 0;display:flex;flex-direction:column;gap:22px;}
@@ -280,18 +295,44 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
 <section class="section">
   <div class="wrap">
     <span class="eyebrow">Check</span>
-    <h2 class="h-sec">こんなお悩み、<span class="accent">ありませんか？</span></h2>
-    <p class="lead">ひとつでも当てはまったら、この先の「あるビルオーナーの話」を読んでみてください。</p>
-    <div class="prob-grid">
-      <div class="checklist">
-        <div class="check"><div class="ic">✓</div><p>特定行政庁から“定期報告”の通知が届いたが、何をすればいいか分からない</p></div>
-        <div class="check"><div class="ic">✓</div><p>所有・管理する建物にどの点検が必要なのか把握できていない</p></div>
-        <div class="check"><div class="ic">✓</div><p>相続・購入した物件の報告が、きちんと出せているか不安</p></div>
-        <div class="check"><div class="ic">✓</div><p>点検で不具合が出たら、また別の業者を探すのが面倒</p></div>
-        <div class="check"><div class="ic">✓</div><p>複数の物件を自己管理していて、報告のたびに手間がかかる</p></div>
+    <h2 class="h-sec">こんな通知が<span class="accent">届いていませんか？</span></h2>
+    <p class="lead">特定行政庁から届く「定期報告」の通知は、下の3種類の調査・検査が対象。放置すると、それぞれ次のようなリスクがあります。</p>
+    <div class="notice-list">
+      <div class="ncard">
+        <div class="n-left">
+          <span class="n-no">1</span>
+          <div class="n-title">特定建築物定期調査 の通知</div>
+          <div class="n-target">対象：敷地・外壁・避難施設など、建物本体</div>
+        </div>
+        <div class="n-right">
+          <span class="n-risk-label">放置すると</span>
+          <p class="n-risk">外壁タイルの浮き・剥落や避難通路の不備を見逃し、通行人の事故など、建物の管理責任を問われるおそれ。</p>
+        </div>
       </div>
-      <div class="ph prob-img"><div class="ph-ic">🖼</div>通知書を手に悩む<br>所有者・管理者の画像</div>
+      <div class="ncard">
+        <div class="n-left">
+          <span class="n-no">2</span>
+          <div class="n-title">建築設備定期検査 の通知</div>
+          <div class="n-target">対象：換気・排煙・非常用照明・給排水など</div>
+        </div>
+        <div class="n-right">
+          <span class="n-risk-label">放置すると</span>
+          <p class="n-risk">非常灯や排煙設備の作動不良を見逃し、停電・火災時に「避難経路が真っ暗」「煙が抜けない」おそれ。</p>
+        </div>
+      </div>
+      <div class="ncard">
+        <div class="n-left">
+          <span class="n-no">3</span>
+          <div class="n-title">防火設備定期検査 の通知</div>
+          <div class="n-target">対象：防火扉・防火シャッターなど</div>
+        </div>
+        <div class="n-right">
+          <span class="n-risk-label">放置すると</span>
+          <p class="n-risk">防火扉・シャッターが「いざという時に閉まらない」不具合を見逃し、炎や煙の拡大を止められないおそれ。</p>
+        </div>
+      </div>
     </div>
+    <p class="lead" style="margin-top:24px;text-align:center;">＋ 定期報告を怠ると、建築基準法により<b>100万円以下の罰金</b>が科される場合があります。<br class="sp-br">通知が届いたら、まずはご相談ください。</p>
   </div>
 </section>
 
