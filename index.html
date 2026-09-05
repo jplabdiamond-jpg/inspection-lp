@@ -111,8 +111,14 @@ img{max-width:100%;display:block;}
 .check p{font-size:15px;font-weight:600;color:var(--ink);}
 .prob-img{height:100%;min-height:280px;}
 
+/* notice sample photo */
+.notice-photo{margin:28px 0 4px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);position:relative;}
+.notice-photo img{width:100%;display:block;}
+.notice-photo .cap{position:absolute;left:0;bottom:0;right:0;background:linear-gradient(transparent,rgba(15,40,62,.78));color:#fff;font-size:13px;font-weight:700;padding:26px 18px 12px;}
+.notice-photo .cap small{font-weight:500;opacity:.85;}
+
 /* notice + risk cards (縦並び) */
-.notice-list{display:flex;flex-direction:column;gap:16px;margin-top:32px;}
+.notice-list{display:flex;flex-direction:column;gap:16px;margin-top:24px;}
 .ncard{display:flex;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-s);}
 @media(max-width:680px){ .ncard{flex-direction:column;} }
 .ncard .n-left{flex:1.05;padding:20px 22px;border-right:1px solid var(--line);position:relative;}
@@ -298,6 +304,10 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
     <span class="eyebrow">Check</span>
     <h2 class="h-sec">こんな通知が<span class="accent">届いていませんか？</span></h2>
     <p class="lead">「定期報告」の通知は、建物の<b>所有者・管理者（オーナー様・管理会社・管理組合）</b>あてに届き、報告も所有者・管理者名義で行います。対象は下の3種類の調査・検査。放置すると、それぞれ次のようなリスクがあります。</p>
+    <figure class="notice-photo">
+      <img src="notice.jpg" alt="特定行政庁から所有者・管理者あてに届く「建築基準法第12条 定期報告について（未提出のお知らせ）」の通知封筒サンプル">
+      <figcaption class="cap">特定行政庁から届く通知の例（封筒イメージ）<br><small>※自治体により様式・色・宛名は異なります。画像はサンプルです。</small></figcaption>
+    </figure>
     <div class="notice-list">
       <div class="ncard">
         <div class="n-left">
