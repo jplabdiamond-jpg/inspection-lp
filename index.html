@@ -124,6 +124,33 @@ img{max-width:100%;display:block;}
   background:var(--navy);color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 10px rgba(0,0,0,.18);}
 .notice-credit{font-size:11px;color:#8a97a3;margin-top:16px;text-align:right;}
 
+/* risk-phrase pop-up (red + bold, animates up when in view) */
+.pop{display:inline-block;color:#c0392b;font-weight:900;
+  opacity:0;transform:translateY(10px);
+  transition:opacity .5s ease, transform .5s cubic-bezier(.22,.61,.36,1);}
+.in .pop{opacity:1;transform:translateY(0);}
+.ncard:nth-child(2) .pop{transition-delay:.08s;}
+.ncard:nth-child(3) .pop{transition-delay:.16s;}
+
+/* penalty line: 2x, bold, red 100万円 + yellow marker sweep */
+.penalty{margin-top:26px;text-align:center;font-weight:900;
+  font-size:clamp(18px,2.4vw,26px);line-height:1.7;color:var(--ink);}
+.penalty .yen{position:relative;display:inline-block;color:#c0392b;font-weight:900;z-index:0;padding:0 .1em;}
+.penalty .yen::before{content:"";position:absolute;left:0;right:0;bottom:.02em;height:.5em;
+  background:#ffd400;border-radius:2px;z-index:-1;
+  transform:scaleX(0);transform-origin:left center;}
+.penalty.in .yen::before{animation:markerSweep .7s cubic-bezier(.22,.61,.36,1) .3s forwards;}
+.penalty-note{font-size:15px;font-weight:600;color:var(--gray);margin-top:6px;}
+
+/* manga fade-in on scroll */
+.mitem{opacity:0;transform:translateY(24px);
+  transition:opacity .7s ease, transform .7s cubic-bezier(.22,.61,.36,1);}
+.mitem.in{opacity:1;transform:translateY(0);}
+@media(prefers-reduced-motion:reduce){
+  .pop,.mitem{opacity:1 !important;transform:none !important;}
+  .penalty.in .yen::before{animation:none;transform:scaleX(1);}
+}
+
 /* notice + risk cards (縦並び) */
 .notice-list{display:flex;flex-direction:column;gap:16px;margin-top:24px;}
 .ncard{display:flex;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-s);}
@@ -328,7 +355,7 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
         </div>
         <div class="n-right">
           <span class="n-risk-label">放置すると</span>
-          <p class="n-risk">外壁タイルの浮き・剥落や避難通路の不備を見逃し、通行人の事故など、建物の管理責任を問われるおそれ。</p>
+          <p class="n-risk">外壁タイルの浮き・剥落や避難通路の不備を見逃し、通行人の事故など、<span class="pop">建物の管理責任を問われる</span>おそれ。</p>
         </div>
       </div>
       <div class="ncard">
@@ -338,7 +365,7 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
         </div>
         <div class="n-right">
           <span class="n-risk-label">放置すると</span>
-          <p class="n-risk">非常灯や排煙設備の作動不良を見逃し、停電・火災時に「避難経路が真っ暗」「煙が抜けない」おそれ。</p>
+          <p class="n-risk">非常灯や排煙設備の作動不良を見逃し、停電・火災時に<span class="pop">「避難経路が真っ暗」</span>「煙が抜けない」おそれ。</p>
         </div>
       </div>
       <div class="ncard">
@@ -348,11 +375,12 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
         </div>
         <div class="n-right">
           <span class="n-risk-label">放置すると</span>
-          <p class="n-risk">防火扉・シャッターが「いざという時に閉まらない」不具合を見逃し、炎や煙の拡大を止められないおそれ。</p>
+          <p class="n-risk">防火扉・シャッターが<span class="pop">「いざという時に閉まらない」</span>不具合を見逃し、炎や煙の拡大を止められないおそれ。</p>
         </div>
       </div>
     </div>
-    <p class="lead" style="margin-top:24px;text-align:center;">＋ 定期報告を怠ると、建築基準法により<b>100万円以下の罰金</b>が科される場合があります。<br class="sp-br">通知が届いたら、所有者・管理者・オーナー様いずれもまずはご相談ください。</p>
+    <p class="penalty">＋ 定期報告を怠ると、建築基準法により<span class="yen">100万円以下の罰金</span>が科される場合があります。</p>
+    <p class="penalty-note">通知が届いたら、所有者・管理者・オーナー様いずれもまずはご相談ください。</p>
     <p class="notice-credit">※画像は通知封筒のサンプルです。自治体により様式・色・宛名は異なります。</p>
   </div>
 </section>
@@ -596,6 +624,22 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
   <a href="#contact" class="s-main">▶ 無料相談・お問い合わせ</a>
   <a href="#contact" class="s-tel">☎ 電話する</a>
 </nav>
+
+<script>
+(function(){
+  var targets = document.querySelectorAll('.ncard, .penalty, .mitem');
+  if(!('IntersectionObserver' in window)){
+    targets.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.25 });
+  targets.forEach(function(el){ io.observe(el); });
+})();
+</script>
 
 </body>
 </html>
