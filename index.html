@@ -34,6 +34,15 @@ img{max-width:100%;display:block;}
 .eyebrow::before{content:"";width:26px;height:2px;background:var(--sky);display:inline-block;}
 .h-sec{font-size:clamp(24px,3.4vw,34px);font-weight:800;line-height:1.35;letter-spacing:.01em;color:var(--navy);margin-bottom:14px;}
 .h-sec .accent{color:var(--sky);}
+/* one-line section title that scales down instead of wrapping */
+.h-sec-1line{white-space:nowrap;font-size:clamp(13px,3.15vw,34px);}
+@media(max-width:600px){.h-sec-1line{font-size:2.95vw;}}
+/* highlighted phrase with scroll-triggered yellow marker sweep */
+.hlmark{position:relative;display:inline-block;z-index:0;font-weight:900;color:var(--navy);}
+.hlmark .hltxt{position:relative;z-index:1;}
+.hlmark::before{content:"";position:absolute;left:-.06em;right:-.06em;bottom:.02em;height:.55em;background:#ffd400;border-radius:2px;transform:scaleX(0);transform-origin:left center;z-index:0;}
+.hlmark.in::before{animation:markerSweep .7s cubic-bezier(.22,.61,.36,1) .2s forwards;}
+@media(prefers-reduced-motion:reduce){.hlmark::before{animation:none;transform:scaleX(1);}}
 .lead{font-size:16px;color:var(--gray);max-width:760px;}
 .center{text-align:center;}
 .center .lead{margin:0 auto;}
@@ -434,7 +443,7 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
 <section class="section" id="about">
   <div class="wrap">
     <span class="eyebrow">Point</span>
-    <h2 class="h-sec">「12条点検」は<span class="accent">4種類</span>。当社は<br class="sp-br">昇降機を除く3種に対応します</h2>
+    <h2 class="h-sec h-sec-1line">「12条点検」は<span class="accent">4種類</span>。当社は<span class="hlmark"><span class="hltxt">昇降機を除く3種に対応</span></span>します</h2>
     <p class="lead">建築基準法12条の定期報告は下の4種類。このうち<b>昇降機等（エレベーター等）は専門の昇降機業者</b>が担当し、<b>それ以外の3種を当社のような点検業者が担当</b>するのが一般的です。</p>
     <div class="type-grid">
       <div class="tcard on">
@@ -631,7 +640,7 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
 
 <script>
 (function(){
-  var targets = document.querySelectorAll('.ncard, .penalty, .mitem');
+  var targets = document.querySelectorAll('.ncard, .penalty, .mitem, .hlmark');
   if(!('IntersectionObserver' in window)){
     targets.forEach(function(el){ el.classList.add('in'); });
     return;
