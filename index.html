@@ -194,8 +194,9 @@ img{max-width:100%;display:block;}
 .tcard .flag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:800;color:#fff;padding:3px 12px;border-radius:999px;white-space:nowrap;}
 .tcard.on .flag{background:var(--sky);}
 .tcard.off .flag{background:#9aa7b3;}
-.tcard .tph{width:64px;height:64px;border-radius:50%;margin:6px auto 12px;}
-.tcard.off .tph{filter:grayscale(1);opacity:.7;}
+.tcard .tph{width:88px;height:88px;border-radius:50%;margin:6px auto 12px;overflow:hidden;border:3px solid #fff;box-shadow:0 6px 16px rgba(20,58,85,.18);}
+.tcard .tph img{width:100%;height:100%;object-fit:cover;display:block;}
+.tcard.off .tph{filter:grayscale(1);opacity:.75;}
 .tnum{font-size:13px;font-weight:800;color:var(--blue);letter-spacing:.1em;}
 .tcard.off .tnum{color:#9aa7b3;}
 .tcard h3{font-size:15px;font-weight:800;color:var(--navy);margin:4px 0 8px;}
@@ -434,16 +435,16 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
     <p class="lead">建築基準法12条の定期報告は下の4種類。このうち<b>昇降機等（エレベーター等）は専門の昇降機業者</b>が担当し、<b>それ以外の3種を当社のような点検業者が担当</b>するのが一般的です。</p>
     <div class="type-grid">
       <div class="tcard on"><span class="flag">当社対応</span>
-        <div class="ph tph"><div class="ph-ic">🖼</div>外壁</div>
+        <div class="tph"><img src="tp1.jpg" alt="外壁の打診調査"></div>
         <div class="tnum">TYPE 01</div><h3>特定建築物定期調査</h3><p>敷地・外部・避難施設など、建物本体の維持保全を調査</p></div>
       <div class="tcard on"><span class="flag">当社対応</span>
-        <div class="ph tph"><div class="ph-ic">🖼</div>非常灯</div>
+        <div class="tph"><img src="tp2.jpg" alt="非常用照明の点検"></div>
         <div class="tnum">TYPE 02</div><h3>建築設備定期検査</h3><p>換気・排煙・非常用照明・給排水など設備の機能を検査</p></div>
       <div class="tcard on"><span class="flag">当社対応</span>
-        <div class="ph tph"><div class="ph-ic">🖼</div>防火扉</div>
+        <div class="tph"><img src="tp3.jpg" alt="防火扉・防火シャッターの検査"></div>
         <div class="tnum">TYPE 03</div><h3>防火設備定期検査</h3><p>防火扉・防火シャッターなどが適切に閉まるかを検査</p></div>
       <div class="tcard off"><span class="flag">昇降機専門業者</span>
-        <div class="ph tph"><div class="ph-ic">🖼</div>EV</div>
+        <div class="tph"><img src="tp4.jpg" alt="エレベーター（昇降機等）"></div>
         <div class="tnum">TYPE 04</div><h3>昇降機等定期検査</h3><p>エレベーター・エスカレーター等（当社対象外）</p></div>
     </div>
     <div class="info-box">いずれも<b>有資格者による調査・検査</b>が必要で、結果を<b>特定行政庁（自治体）へ報告する義務</b>があります。対象建築物・規模・報告周期は<b>建物が所在する地域（特定行政庁）で異なります</b>。&nbsp;<a href="https://yokohamakensetsuboukakensa.jp/inspection/">▶ 制度の詳しい解説はこちら</a></div>
