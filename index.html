@@ -187,16 +187,19 @@ img{max-width:100%;display:block;}
 .type-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px;}
 @media(max-width:860px){ .type-grid{grid-template-columns:repeat(2,1fr);} }
 @media(max-width:460px){ .type-grid{grid-template-columns:1fr;} }
-.tcard{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px 18px;text-align:center;position:relative;box-shadow:var(--shadow-s);transition:transform .15s,box-shadow .15s;}
+.tcard{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;text-align:center;position:relative;box-shadow:var(--shadow-s);transition:transform .15s,box-shadow .15s;}
 .tcard.on{border:2px solid var(--sky);}
 .tcard.on:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
-.tcard.off{background:#f1f4f7;border:1px dashed #cdd6df;opacity:.85;}
-.tcard .flag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:800;color:#fff;padding:3px 12px;border-radius:999px;white-space:nowrap;}
-.tcard.on .flag{background:var(--sky);}
-.tcard.off .flag{background:#9aa7b3;}
-.tcard .tph{width:88px;height:88px;border-radius:50%;margin:6px auto 12px;overflow:hidden;border:3px solid #fff;box-shadow:0 6px 16px rgba(20,58,85,.18);}
+.tcard.off{background:#f1f4f7;border:1px dashed #cdd6df;opacity:.9;}
+/* image = full-width top half of the card */
+.tcard .tph{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;margin:0;}
 .tcard .tph img{width:100%;height:100%;object-fit:cover;display:block;}
-.tcard.off .tph{filter:grayscale(1);opacity:.75;}
+.tcard.off .tph img{filter:grayscale(1);}
+/* flag overlays the image (top-left) */
+.tcard .flag{position:absolute;top:10px;left:10px;font-size:11px;font-weight:800;color:#fff;padding:4px 11px;border-radius:6px;white-space:nowrap;box-shadow:0 3px 8px rgba(0,0,0,.25);z-index:2;}
+.tcard.on .flag{background:var(--sky);}
+.tcard.off .flag{background:#8a97a3;}
+.tcard .tbody{padding:16px 16px 20px;}
 .tnum{font-size:13px;font-weight:800;color:var(--blue);letter-spacing:.1em;}
 .tcard.off .tnum{color:#9aa7b3;}
 .tcard h3{font-size:15px;font-weight:800;color:var(--navy);margin:4px 0 8px;}
@@ -434,18 +437,18 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
     <h2 class="h-sec">「12条点検」は<span class="accent">4種類</span>。当社は<br class="sp-br">昇降機を除く3種に対応します</h2>
     <p class="lead">建築基準法12条の定期報告は下の4種類。このうち<b>昇降機等（エレベーター等）は専門の昇降機業者</b>が担当し、<b>それ以外の3種を当社のような点検業者が担当</b>するのが一般的です。</p>
     <div class="type-grid">
-      <div class="tcard on"><span class="flag">当社対応</span>
-        <div class="tph"><img src="tp1.jpg" alt="外壁の打診調査"></div>
-        <div class="tnum">TYPE 01</div><h3>特定建築物定期調査</h3><p>敷地・外部・避難施設など、建物本体の維持保全を調査</p></div>
-      <div class="tcard on"><span class="flag">当社対応</span>
-        <div class="tph"><img src="tp2.jpg" alt="非常用照明の点検"></div>
-        <div class="tnum">TYPE 02</div><h3>建築設備定期検査</h3><p>換気・排煙・非常用照明・給排水など設備の機能を検査</p></div>
-      <div class="tcard on"><span class="flag">当社対応</span>
-        <div class="tph"><img src="tp3.jpg" alt="防火扉・防火シャッターの検査"></div>
-        <div class="tnum">TYPE 03</div><h3>防火設備定期検査</h3><p>防火扉・防火シャッターなどが適切に閉まるかを検査</p></div>
-      <div class="tcard off"><span class="flag">昇降機専門業者</span>
-        <div class="tph"><img src="tp4.jpg" alt="エレベーター（昇降機等）"></div>
-        <div class="tnum">TYPE 04</div><h3>昇降機等定期検査</h3><p>エレベーター・エスカレーター等（当社対象外）</p></div>
+      <div class="tcard on">
+        <div class="tph"><span class="flag">当社対応</span><img src="tp1.jpg" alt="外壁の打診調査"></div>
+        <div class="tbody"><div class="tnum">TYPE 01</div><h3>特定建築物定期調査</h3><p>敷地・外部・避難施設など、建物本体の維持保全を調査</p></div></div>
+      <div class="tcard on">
+        <div class="tph"><span class="flag">当社対応</span><img src="tp2.jpg" alt="非常用照明の点検"></div>
+        <div class="tbody"><div class="tnum">TYPE 02</div><h3>建築設備定期検査</h3><p>換気・排煙・非常用照明・給排水など設備の機能を検査</p></div></div>
+      <div class="tcard on">
+        <div class="tph"><span class="flag">当社対応</span><img src="tp3.jpg" alt="防火扉・防火シャッターの検査"></div>
+        <div class="tbody"><div class="tnum">TYPE 03</div><h3>防火設備定期検査</h3><p>防火扉・防火シャッターなどが適切に閉まるかを検査</p></div></div>
+      <div class="tcard off">
+        <div class="tph"><span class="flag">昇降機専門業者</span><img src="tp4.jpg" alt="エレベーター（昇降機等）"></div>
+        <div class="tbody"><div class="tnum">TYPE 04</div><h3>昇降機等定期検査</h3><p>エレベーター・エスカレーター等（当社対象外）</p></div></div>
     </div>
     <div class="info-box">いずれも<b>有資格者による調査・検査</b>が必要で、結果を<b>特定行政庁（自治体）へ報告する義務</b>があります。対象建築物・規模・報告周期は<b>建物が所在する地域（特定行政庁）で異なります</b>。&nbsp;<a href="https://yokohamakensetsuboukakensa.jp/inspection/">▶ 制度の詳しい解説はこちら</a></div>
   </div>
