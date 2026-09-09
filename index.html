@@ -316,8 +316,15 @@ img{max-width:100%;display:block;}
 @media(prefers-reduced-motion:reduce){
   .risk-grid .rcard{opacity:1 !important;transform:none !important;animation:none !important;}
 }
-.legal{margin-top:24px;background:var(--warn-bg);border:1px solid #f0d3a8;border-left:5px solid #e08a1e;border-radius:12px;padding:18px 22px;font-size:14px;color:#7a4a17;line-height:1.75;}
+.legal{margin-top:24px;background:var(--warn-bg);border:1px solid #f0d3a8;border-left:5px solid #e08a1e;border-radius:12px;padding:28px 30px;font-size:clamp(19px,2.4vw,28px);color:#7a4a17;line-height:1.7;}
 .legal b{color:#8a3d0a;}
+/* red bold + yellow marker sweep on the key phrases (same as the notice penalty) */
+.legal .yen{position:relative;display:inline-block;color:#c0392b;font-weight:900;z-index:0;padding:0 .12em;}
+.legal .yen::before{content:"";position:absolute;left:0;right:0;bottom:.02em;height:.5em;
+  background:#ffd400;border-radius:2px;z-index:-1;transform:scaleX(0);transform-origin:left center;}
+.legal.in .yen::before{animation:markerSweep .7s cubic-bezier(.22,.61,.36,1) .3s forwards;}
+.legal.in .yen:nth-of-type(2)::before{animation-delay:.6s;}
+@media(prefers-reduced-motion:reduce){ .legal.in .yen::before{animation:none;transform:scaleX(1);} }
 
 /* ---------- SOLUTION ---------- */
 .sol-sec{background:linear-gradient(180deg,#f4f8fb,#eaf3f0);position:relative;overflow:hidden;}
@@ -609,7 +616,7 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
         <p>防火扉・シャッターの作動不良を見逃す → 火災時に閉まらず、炎や煙の拡大を止められないおそれ。</p>
       </div>
     </div>
-    <div class="legal"><b>＋法的リスク：</b>定期報告を怠ると建築基準法101条により<b>100万円以下の罰金</b>が科される場合があります。また未報告のまま事故が起きれば、所有者・管理者として<b>損害賠償等を問われるおそれ</b>があります。※運用・時期は自治体により異なります。</div>
+    <div class="legal"><b>＋法的リスク：</b>定期報告を怠ると建築基準法101条により<span class="yen">100万円以下の罰金</span>が科される場合があります。また未報告のまま事故が起きれば、所有者・管理者として<span class="yen">損害賠償</span>等を問われるおそれがあります。※運用・時期は自治体により異なります。</div>
   </div>
 </section>
 
@@ -701,7 +708,7 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
 
 <script>
 (function(){
-  var targets = document.querySelectorAll('.ncard, .penalty, .mitem, .hlmark, .flow, .risk-grid, .reason-grid');
+  var targets = document.querySelectorAll('.ncard, .penalty, .mitem, .hlmark, .flow, .risk-grid, .reason-grid, .legal');
   if(!('IntersectionObserver' in window)){
     targets.forEach(function(el){ el.classList.add('in'); });
     return;
