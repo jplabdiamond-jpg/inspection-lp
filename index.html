@@ -303,10 +303,19 @@ img{max-width:100%;display:block;}
   background-size:cover;background-position:center;color:#fff;
   border-top:4px solid #c0392b;}
 .rcard::before{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(15,25,35,.30) 0%,rgba(15,25,35,.55) 45%,rgba(12,20,28,.90) 100%);}
+  background:linear-gradient(180deg,rgba(15,25,35,0) 0%,rgba(15,25,35,0) 42%,rgba(12,20,28,.82) 100%);}
 .rcard .rhead{position:relative;padding:0 20px 8px;font-size:16px;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px;text-shadow:0 2px 8px rgba(0,0,0,.5);}
 .rcard .rhead .rn{flex:none;width:26px;height:26px;border-radius:6px;background:#c0392b;color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center;font-weight:800;box-shadow:0 2px 6px rgba(0,0,0,.4);}
 .rcard p{position:relative;padding:0 20px 20px;font-size:13.5px;color:#eef2f5;line-height:1.65;text-shadow:0 1px 6px rgba(0,0,0,.6);}
+/* risk cards: bounce-up + fade, one by one when the grid scrolls into view */
+.risk-grid .rcard{opacity:0;transform:translateY(28px);}
+.risk-grid.in .rcard{animation:flowBounce .62s cubic-bezier(.34,1.56,.64,1) both;}
+.risk-grid.in .rcard:nth-child(1){animation-delay:.05s;}
+.risk-grid.in .rcard:nth-child(2){animation-delay:.25s;}
+.risk-grid.in .rcard:nth-child(3){animation-delay:.45s;}
+@media(prefers-reduced-motion:reduce){
+  .risk-grid .rcard{opacity:1 !important;transform:none !important;animation:none !important;}
+}
 .legal{margin-top:24px;background:var(--warn-bg);border:1px solid #f0d3a8;border-left:5px solid #e08a1e;border-radius:12px;padding:18px 22px;font-size:14px;color:#7a4a17;line-height:1.75;}
 .legal b{color:#8a3d0a;}
 
@@ -665,7 +674,7 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
 
 <script>
 (function(){
-  var targets = document.querySelectorAll('.ncard, .penalty, .mitem, .hlmark, .flow');
+  var targets = document.querySelectorAll('.ncard, .penalty, .mitem, .hlmark, .flow, .risk-grid');
   if(!('IntersectionObserver' in window)){
     targets.forEach(function(el){ el.classList.add('in'); });
     return;
