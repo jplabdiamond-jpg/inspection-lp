@@ -46,8 +46,8 @@ img{max-width:100%;display:block;}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:800;font-size:17px;padding:17px 30px;border-radius:999px;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease,background .15s ease;cursor:pointer;border:none;}
-.btn-main{background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;box-shadow:0 10px 24px rgba(31,95,139,.30);}
-.btn-main:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(31,95,139,.42);}
+.btn-main{background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;box-shadow:0 10px 24px rgba(31,95,139,.30);transition:background .35s ease,transform .15s ease,box-shadow .15s ease;}
+.btn-main:hover{background:linear-gradient(135deg,#3a86c4,#2b6fa8);transform:translateY(-2px);box-shadow:0 14px 30px rgba(31,95,139,.42);}
 .btn-tel{background:#fff;color:var(--navy);border:2px solid var(--navy);}
 .btn-tel:hover{background:var(--navy);color:#fff;transform:translateY(-2px);}
 .btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:2px solid rgba(255,255,255,.55);}
@@ -109,7 +109,6 @@ img{max-width:100%;display:block;}
   .hero h1 .mark::before{ animation:none; transform:scaleX(1); }
 }
 .hero p.sub{font-size:16.5px;color:#dceaf5;margin-bottom:30px;max-width:560px;}
-.hero .cta-pair .btn-tel{background:rgba(255,255,255,.95);}
 .hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
 .hero-badges span{font-size:12.5px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:7px 13px;border-radius:8px;color:#eaf3fa;}
 
@@ -453,7 +452,7 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
       <p class="sub">建築基準法12条の定期報告のうち、<b>特定建築物定期調査・建築設備定期検査・防火設備定期検査</b>に対応。通知が届いてからの<b>対象確認・点検・報告書提出まで、まるごとお任せ</b>いただけます。</p>
       <div class="cta-pair">
         <a href="#contact" class="btn btn-main">▶ まずは無料で相談する</a>
-        <a href="#contact" class="btn btn-tel">☎ 電話で相談する</a>
+        <a href="#contact" class="btn btn-ghost">☎ 電話で相談する</a>
       </div>
       <div class="hero-badges">
         <span>横浜拠点／東京・川崎・首都圏対応</span>
