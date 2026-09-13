@@ -456,10 +456,10 @@ img{max-width:100%;display:block;}
 .allone-msg .m2{font-size:clamp(20px,2.9vw,30px);font-weight:900;color:#fff;line-height:1.7;letter-spacing:.01em;}
 /* fluorescent translucent marker sweep on the two key phrases */
 .allone-msg .mk{position:relative;display:inline-block;z-index:0;}
-.allone-msg .mk .mktxt{position:relative;z-index:1;color:#e60012;
-  -webkit-text-stroke:1.4px #fff;paint-order:stroke fill;
-  text-shadow:0 2px 3px rgba(0,0,0,.45),0 1px 1px rgba(0,0,0,.5);}
-.allone-msg .mk::before{content:"";position:absolute;left:-.06em;right:-.06em;bottom:.02em;height:.55em;background:rgba(212,255,0,.55);border-radius:2px;transform:scaleX(0);transform-origin:left center;z-index:0;}
+.allone-msg .mk .mktxt{position:relative;z-index:1;color:#fff;
+  -webkit-text-stroke:1.6px #e60012;paint-order:stroke fill;
+  text-shadow:0 2px 3px rgba(0,0,0,.4),0 1px 1px rgba(0,0,0,.45);}
+.allone-msg .mk::before{content:"";position:absolute;left:-.1em;right:-.1em;top:-.04em;bottom:-.04em;background:#ffd400;border-radius:3px;transform:scaleX(0);transform-origin:left center;z-index:0;}
 .allone-closer.in .allone-msg .m1 .mk::before{animation:markerSweep .7s cubic-bezier(.22,.61,.36,1) .35s forwards;}
 .allone-closer.in .allone-msg .m2 .mk::before{animation:markerSweep .7s cubic-bezier(.22,.61,.36,1) .6s forwards;}
 @media(prefers-reduced-motion:reduce){.allone-msg .mk::before{animation:none!important;transform:scaleX(1);}}
