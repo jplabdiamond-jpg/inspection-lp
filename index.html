@@ -424,19 +424,50 @@ img{max-width:100%;display:block;}
 .allone-sec .h-sec{color:#fff;}
 .allone-sec .h-sec .accent{color:#8fd4ff;}
 .allone-lead{font-size:16px;color:#d5e6f2;max-width:820px;margin-top:2px;}
-.allone-grid{margin-top:32px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-@media(max-width:820px){ .allone-grid{grid-template-columns:repeat(2,1fr);gap:14px;} }
-.acard{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.18);opacity:0;transform:translateY(22px);}
-.allone-grid.in .acard{animation:acardUp .6s cubic-bezier(.22,1,.36,1) forwards;}
-.allone-grid.in .acard:nth-child(1){animation-delay:.05s;}
-.allone-grid.in .acard:nth-child(2){animation-delay:.18s;}
-.allone-grid.in .acard:nth-child(3){animation-delay:.31s;}
-.allone-grid.in .acard:nth-child(4){animation-delay:.44s;}
 @keyframes acardUp{to{opacity:1;transform:translateY(0);}}
-.acard-img{aspect-ratio:4/3;overflow:hidden;}
-.acard-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
-.acard:hover .acard-img img{transform:scale(1.07);}
-.acard-ttl{padding:14px 16px 16px;font-size:15px;font-weight:800;color:#fff;line-height:1.4;text-align:center;}
+
+/* ---- category slider ---- */
+.sl-wrap{margin-top:30px;opacity:0;transform:translateY(22px);}
+.allone-sec .sl-wrap.in{animation:acardUp .6s cubic-bezier(.22,1,.36,1) forwards;}
+.sl-tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:20px;}
+.sl-tab{appearance:none;cursor:pointer;font-family:inherit;font-weight:800;font-size:14.5px;color:#d5e6f2;
+  background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.22);border-radius:999px;padding:10px 20px;
+  transition:background .2s,color .2s,border-color .2s,transform .15s;}
+.sl-tab:hover{background:rgba(255,255,255,.14);transform:translateY(-1px);}
+.sl-tab.active{background:#fff;color:var(--navy);border-color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.2);}
+@media(max-width:560px){ .sl-tab{font-size:13px;padding:9px 15px;} }
+
+.sl-panel{display:none;}
+.sl-panel.on{display:block;animation:slFade .5s ease;}
+@keyframes slFade{from{opacity:0;} to{opacity:1;}}
+
+.sl-stage{position:relative;max-width:820px;margin:0 auto;border-radius:var(--radius);overflow:hidden;
+  box-shadow:0 16px 40px rgba(0,0,0,.32);border:1px solid rgba(255,255,255,.14);background:#0d2537;}
+.sl-track{position:relative;aspect-ratio:4/3;}
+@media(min-width:700px){ .sl-track{aspect-ratio:16/10;} }
+.sl-slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease;}
+.sl-slide.cur{opacity:1;}
+.sl-slide img{width:100%;height:100%;object-fit:cover;display:block;}
+.sl-cap{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 14px;
+  background:linear-gradient(to top,rgba(6,20,32,.82),transparent);
+  color:#fff;font-size:14.5px;font-weight:700;letter-spacing:.02em;}
+.sl-cap .cat{display:inline-block;font-size:11.5px;font-weight:800;color:var(--navy);background:#8fd4ff;
+  border-radius:5px;padding:2px 9px;margin-right:9px;vertical-align:middle;}
+@media(max-width:560px){ .sl-cap{font-size:13px;padding:30px 14px 12px;} }
+
+.sl-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;cursor:pointer;
+  width:44px;height:44px;border:none;border-radius:50%;background:rgba(10,30,46,.55);color:#fff;
+  font-size:20px;line-height:44px;text-align:center;transition:background .2s,transform .15s;backdrop-filter:blur(2px);}
+.sl-arrow:hover{background:rgba(10,30,46,.85);}
+.sl-arrow.prev{left:12px;} .sl-arrow.next{right:12px;}
+.sl-arrow:active{transform:translateY(-50%) scale(.92);}
+@media(max-width:560px){ .sl-arrow{width:38px;height:38px;line-height:38px;font-size:17px;} }
+
+.sl-dots{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px;}
+.sl-dot{width:9px;height:9px;border-radius:50%;border:none;padding:0;cursor:pointer;
+  background:rgba(255,255,255,.30);transition:background .2s,transform .2s;}
+.sl-dot.cur{background:#8fd4ff;transform:scale(1.25);}
+.sl-count{text-align:center;margin-top:12px;font-size:13px;color:#a9c6da;font-weight:600;}
 /* closing block: staff photo + message, two columns */
 .allone-closer{margin-top:38px;display:grid;grid-template-columns:minmax(240px,340px) 1fr;gap:30px;align-items:center;}
 @media(max-width:820px){ .allone-closer{grid-template-columns:1fr;gap:10px;justify-items:center;} }
@@ -775,11 +806,66 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
     <span class="eyebrow">All in One</span>
     <h2 class="h-sec">特定建築物定期調査も、<br class="sp-br">検査・点検も<span class="accent">まとめて対応</span></h2>
     <p class="allone-lead">特定建築物定期調査に加え、建築設備定期検査・非常用照明点検・防火設備定期検査まで。物件ごとに業者を分ける必要はありません。すべて当社でまとめて承ります。</p>
-    <div class="allone-grid">
-      <div class="acard"><div class="acard-img"><img src="svc1.jpg" alt="建物設備定期点検（直流電源装置 内部点検）" loading="lazy"></div><div class="acard-ttl">建物設備定期点検</div></div>
-      <div class="acard"><div class="acard-img"><img src="svc2.jpg" alt="防火設備定期点検（防災盤バッテリー交換工事）" loading="lazy"></div><div class="acard-ttl">防火設備定期点検</div></div>
-      <div class="acard"><div class="acard-img"><img src="svc3.jpg" alt="非常用照明点検・交換（マンション非常灯交換工事）" loading="lazy"></div><div class="acard-ttl">非常用照明点検・交換</div></div>
-      <div class="acard"><div class="acard-img"><img src="svc4.jpg" alt="特殊建築物定期調査（フェンス 錆調査）" loading="lazy"></div><div class="acard-ttl">特殊建築物定期調査</div></div>
+    <div class="sl-wrap" id="allSlider">
+      <div class="sl-tabs" role="tablist">
+        <button class="sl-tab active" data-panel="p-equip" type="button">建築設備定期検査</button>
+        <button class="sl-tab" data-panel="p-fire" type="button">防火設備定期検査</button>
+        <button class="sl-tab" data-panel="p-light" type="button">非常用照明点検</button>
+        <button class="sl-tab" data-panel="p-special" type="button">特殊建築物定期調査</button>
+      </div>
+
+      <div class="sl-panel on" id="p-equip" data-cat="建築設備定期検査">
+        <div class="sl-stage"><div class="sl-track">
+          <div class="sl-slide cur"><img src="sl_equip1.jpg" alt="直流電源装置 内部点検" loading="lazy"><div class="sl-cap"><span class="cat">建築設備</span>直流電源装置 内部点検</div></div>
+          <div class="sl-slide"><img src="sl_equip2.jpg" alt="ディーゼル非常用発電機 点検" loading="lazy"><div class="sl-cap"><span class="cat">建築設備</span>ディーゼル非常用発電機 点検</div></div>
+          <div class="sl-slide"><img src="sl_equip3.jpg" alt="オフィス室内 空気環境測定" loading="lazy"><div class="sl-cap"><span class="cat">建築設備</span>オフィス室内 空気環境測定</div></div>
+          <div class="sl-slide"><img src="sl_equip4.jpg" alt="防火ダンパー 点検" loading="lazy"><div class="sl-cap"><span class="cat">建築設備</span>防火ダンパー 点検</div></div>
+          <div class="sl-slide"><img src="sl_equip5.jpg" alt="排煙口 風量測定" loading="lazy"><div class="sl-cap"><span class="cat">建築設備</span>排煙口 風量測定</div></div>
+          <div class="sl-slide"><img src="sl_equip6.jpg" alt="換気設備 風量測定" loading="lazy"><div class="sl-cap"><span class="cat">建築設備</span>換気設備 風量測定</div></div>
+          <div class="sl-slide"><img src="sl_equip7.jpg" alt="レンジフード 点検" loading="lazy"><div class="sl-cap"><span class="cat">建築設備</span>レンジフード 点検</div></div>
+          <button class="sl-arrow prev" type="button" aria-label="前へ">‹</button><button class="sl-arrow next" type="button" aria-label="次へ">›</button>
+        </div></div>
+        <div class="sl-dots"></div>
+      </div>
+
+      <div class="sl-panel" id="p-fire" data-cat="防火設備定期検査">
+        <div class="sl-stage"><div class="sl-track">
+          <div class="sl-slide cur"><img src="sl_fire1.jpg" alt="防災監視盤 点検" loading="lazy"><div class="sl-cap"><span class="cat">防火設備</span>防災監視盤 点検</div></div>
+          <div class="sl-slide"><img src="sl_fire2.jpg" alt="防火扉 動作確認" loading="lazy"><div class="sl-cap"><span class="cat">防火設備</span>防火扉 動作確認</div></div>
+          <div class="sl-slide"><img src="sl_fire3.jpg" alt="防火戸 テンションゲージ試験" loading="lazy"><div class="sl-cap"><span class="cat">防火設備</span>防火戸 テンションゲージ試験</div></div>
+          <div class="sl-slide"><img src="sl_fire4.jpg" alt="防火シャッター 起動試験" loading="lazy"><div class="sl-cap"><span class="cat">防火設備</span>防火シャッター 起動試験</div></div>
+          <div class="sl-slide"><img src="sl_fire5.jpg" alt="防火シャッター機構部 メンテナンス" loading="lazy"><div class="sl-cap"><span class="cat">防火設備</span>防火シャッター機構部 メンテナンス</div></div>
+          <div class="sl-slide"><img src="sl_fire6.jpg" alt="エレベーター防火スクリーン 動作確認" loading="lazy"><div class="sl-cap"><span class="cat">防火設備</span>エレベーター防火スクリーン 動作確認</div></div>
+          <div class="sl-slide"><img src="sl_fire7.jpg" alt="防災盤バッテリー交換工事" loading="lazy"><div class="sl-cap"><span class="cat">防火設備</span>防災盤バッテリー交換工事</div></div>
+          <button class="sl-arrow prev" type="button" aria-label="前へ">‹</button><button class="sl-arrow next" type="button" aria-label="次へ">›</button>
+        </div></div>
+        <div class="sl-dots"></div>
+      </div>
+
+      <div class="sl-panel" id="p-light" data-cat="非常用照明点検">
+        <div class="sl-stage"><div class="sl-track">
+          <div class="sl-slide cur"><img src="sl_light1.jpg" alt="非常用照明 点検" loading="lazy"><div class="sl-cap"><span class="cat">非常用照明</span>非常用照明 点検</div></div>
+          <div class="sl-slide"><img src="sl_light2.jpg" alt="非常灯 点検" loading="lazy"><div class="sl-cap"><span class="cat">非常用照明</span>非常灯 点検</div></div>
+          <div class="sl-slide"><img src="sl_light3.jpg" alt="床面 照度測定" loading="lazy"><div class="sl-cap"><span class="cat">非常用照明</span>床面 照度測定</div></div>
+          <div class="sl-slide"><img src="sl_light4.jpg" alt="階段誘導灯 点検" loading="lazy"><div class="sl-cap"><span class="cat">非常用照明</span>階段誘導灯 点検</div></div>
+          <button class="sl-arrow prev" type="button" aria-label="前へ">‹</button><button class="sl-arrow next" type="button" aria-label="次へ">›</button>
+        </div></div>
+        <div class="sl-dots"></div>
+      </div>
+
+      <div class="sl-panel" id="p-special" data-cat="特殊建築物定期調査">
+        <div class="sl-stage"><div class="sl-track">
+          <div class="sl-slide cur"><img src="sl_special1.jpg" alt="フェンス 錆調査" loading="lazy"><div class="sl-cap"><span class="cat">特殊建築物</span>フェンス 錆調査</div></div>
+          <div class="sl-slide"><img src="sl_special2.jpg" alt="屋上 排水ドレン調査" loading="lazy"><div class="sl-cap"><span class="cat">特殊建築物</span>屋上 排水ドレン調査</div></div>
+          <div class="sl-slide"><img src="sl_special3.jpg" alt="屋上 防水調査" loading="lazy"><div class="sl-cap"><span class="cat">特殊建築物</span>屋上 防水調査</div></div>
+          <div class="sl-slide"><img src="sl_special4.jpg" alt="外壁タイル 打診検査" loading="lazy"><div class="sl-cap"><span class="cat">特殊建築物</span>外壁タイル 打診検査</div></div>
+          <div class="sl-slide"><img src="sl_special5.jpg" alt="外壁 赤外線調査" loading="lazy"><div class="sl-cap"><span class="cat">特殊建築物</span>外壁 赤外線調査</div></div>
+          <div class="sl-slide"><img src="sl_special6.jpg" alt="排煙窓 開放操作確認" loading="lazy"><div class="sl-cap"><span class="cat">特殊建築物</span>排煙窓 開放操作確認</div></div>
+          <div class="sl-slide"><img src="sl_special7.jpg" alt="排煙窓操作口 メンテナンス" loading="lazy"><div class="sl-cap"><span class="cat">特殊建築物</span>排煙窓操作口 メンテナンス</div></div>
+          <button class="sl-arrow prev" type="button" aria-label="前へ">‹</button><button class="sl-arrow next" type="button" aria-label="次へ">›</button>
+        </div></div>
+        <div class="sl-dots"></div>
+      </div>
     </div>
     <div class="allone-closer">
       <div class="allone-staff">
@@ -840,7 +926,7 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
 
 <script>
 (function(){
-  var targets = document.querySelectorAll('.ncard, .penalty, .mitem, .hlmark, .flow, .risk-grid, .reason-grid, .legal, .allone-grid, .allone-closer');
+  var targets = document.querySelectorAll('.ncard, .penalty, .mitem, .hlmark, .flow, .risk-grid, .reason-grid, .legal, .sl-wrap, .allone-closer');
   if(!('IntersectionObserver' in window)){
     targets.forEach(function(el){ el.classList.add('in'); });
     return;
@@ -851,6 +937,62 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
     });
   }, { threshold: 0.25 });
   targets.forEach(function(el){ io.observe(el); });
+})();
+
+/* ---- category slider ---- */
+(function(){
+  var root = document.getElementById('allSlider');
+  if(!root) return;
+  var tabs = root.querySelectorAll('.sl-tab');
+  var panels = root.querySelectorAll('.sl-panel');
+  var timer = null, INTERVAL = 4200;
+
+  function setupPanel(panel){
+    var slides = panel.querySelectorAll('.sl-slide');
+    var dotsBox = panel.querySelector('.sl-dots');
+    var idx = 0;
+    // build dots
+    slides.forEach(function(s, i){
+      var d = document.createElement('button');
+      d.className = 'sl-dot' + (i===0?' cur':'');
+      d.type = 'button';
+      d.setAttribute('aria-label', (i+1)+'枚目');
+      d.addEventListener('click', function(){ go(i); });
+      dotsBox.appendChild(d);
+    });
+    var dots = dotsBox.querySelectorAll('.sl-dot');
+    function go(n){
+      slides[idx].classList.remove('cur'); dots[idx].classList.remove('cur');
+      idx = (n + slides.length) % slides.length;
+      slides[idx].classList.add('cur'); dots[idx].classList.add('cur');
+    }
+    panel.querySelector('.sl-arrow.prev').addEventListener('click', function(){ go(idx-1); restart(); });
+    panel.querySelector('.sl-arrow.next').addEventListener('click', function(){ go(idx+1); restart(); });
+    panel._next = function(){ go(idx+1); };
+    return panel;
+  }
+  panels.forEach(setupPanel);
+
+  function activePanel(){ return root.querySelector('.sl-panel.on'); }
+  function tick(){ var p = activePanel(); if(p && p._next) p._next(); }
+  function start(){ stop(); timer = setInterval(tick, INTERVAL); }
+  function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+  function restart(){ start(); }
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      panels.forEach(function(p){ p.classList.remove('on'); });
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.panel).classList.add('on');
+      restart();
+    });
+  });
+
+  // pause on hover (desktop)
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  start();
 })();
 </script>
 
