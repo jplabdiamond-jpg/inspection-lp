@@ -435,7 +435,8 @@ img{max-width:100%;display:block;}
   transition:background .2s,color .2s,border-color .2s,transform .15s;}
 .sl-tab:hover{background:rgba(255,255,255,.14);transform:translateY(-1px);}
 .sl-tab.active{background:#fff;color:var(--navy);border-color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.2);}
-@media(max-width:560px){ .sl-tab{font-size:13px;padding:9px 15px;} }
+.sl-tab .tab-sub{display:inline;margin-left:.4em;font-size:.86em;opacity:.9;}
+@media(max-width:560px){ .sl-tab{font-size:13px;padding:9px 15px;} .sl-tab .tab-sub{display:block;margin-left:0;font-size:.82em;} }
 
 .sl-panel{display:none;}
 .sl-panel.on{display:block;animation:slFade .5s ease;}
@@ -812,6 +813,7 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
         <button class="sl-tab" data-panel="p-fire" type="button">防火設備定期検査</button>
         <button class="sl-tab" data-panel="p-light" type="button">非常用照明点検</button>
         <button class="sl-tab" data-panel="p-special" type="button">特殊建築物定期調査</button>
+        <button class="sl-tab" data-panel="p-after" type="button">アフターフォロー<span class="tab-sub">非常用照明交換工事</span></button>
       </div>
 
       <div class="sl-panel on" id="p-equip" data-cat="建築設備定期検査">
@@ -862,6 +864,21 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
           <div class="sl-slide"><img src="sl_special5.jpg" alt="外壁 赤外線調査" loading="lazy"><div class="sl-cap"><span class="cat">特殊建築物</span>外壁 赤外線調査</div></div>
           <div class="sl-slide"><img src="sl_special6.jpg" alt="排煙窓 開放操作確認" loading="lazy"><div class="sl-cap"><span class="cat">特殊建築物</span>排煙窓 開放操作確認</div></div>
           <div class="sl-slide"><img src="sl_special7.jpg" alt="排煙窓操作口 メンテナンス" loading="lazy"><div class="sl-cap"><span class="cat">特殊建築物</span>排煙窓操作口 メンテナンス</div></div>
+          <button class="sl-arrow prev" type="button" aria-label="前へ">‹</button><button class="sl-arrow next" type="button" aria-label="次へ">›</button>
+        </div></div>
+        <div class="sl-dots"></div>
+      </div>
+
+      <div class="sl-panel" id="p-after" data-cat="アフターフォロー">
+        <div class="sl-stage"><div class="sl-track">
+          <div class="sl-slide cur"><img src="sl_after1.jpg" alt="マンション 非常灯交換工事" loading="lazy"><div class="sl-cap"><span class="cat">交換工事</span>マンション 非常灯交換工事</div></div>
+          <div class="sl-slide"><img src="sl_after2.jpg" alt="マンション 非常灯交換工事" loading="lazy"><div class="sl-cap"><span class="cat">交換工事</span>マンション 非常灯交換工事</div></div>
+          <div class="sl-slide"><img src="sl_after3.jpg" alt="マンション 非常灯交換工事" loading="lazy"><div class="sl-cap"><span class="cat">交換工事</span>マンション 非常灯交換工事</div></div>
+          <div class="sl-slide"><img src="sl_after4.jpg" alt="マンション 非常灯交換工事" loading="lazy"><div class="sl-cap"><span class="cat">交換工事</span>マンション 非常灯交換工事</div></div>
+          <div class="sl-slide"><img src="sl_after5.jpg" alt="学習塾 非常灯交換工事" loading="lazy"><div class="sl-cap"><span class="cat">交換工事</span>学習塾 非常灯交換工事</div></div>
+          <div class="sl-slide"><img src="sl_after6.jpg" alt="学習塾 非常灯交換工事" loading="lazy"><div class="sl-cap"><span class="cat">交換工事</span>学習塾 非常灯交換工事</div></div>
+          <div class="sl-slide"><img src="sl_after7.jpg" alt="民泊施設 非常灯新設工事" loading="lazy"><div class="sl-cap"><span class="cat">新設工事</span>民泊施設 非常灯新設工事</div></div>
+          <div class="sl-slide"><img src="sl_after8.jpg" alt="オフィス 非常灯交換工事" loading="lazy"><div class="sl-cap"><span class="cat">交換工事</span>オフィス 非常灯交換工事</div></div>
           <button class="sl-arrow prev" type="button" aria-label="前へ">‹</button><button class="sl-arrow next" type="button" aria-label="次へ">›</button>
         </div></div>
         <div class="sl-dots"></div>
