@@ -438,6 +438,11 @@ img{max-width:100%;display:block;}
 .sl-tab .tab-sub{display:inline;margin-left:.4em;font-size:.86em;opacity:.9;}
 @media(max-width:560px){ .sl-tab{font-size:13px;padding:9px 15px;} .sl-tab .tab-sub{display:block;margin-left:0;font-size:.82em;} }
 
+.sl-heading{display:flex;flex-direction:column;align-items:center;gap:2px;margin:6px 0 20px;}
+.sl-heading-en{font-size:12px;font-weight:800;letter-spacing:.22em;color:#8fd4ff;}
+.sl-heading-jp{position:relative;font-size:clamp(26px,4vw,38px);font-weight:900;color:#fff;letter-spacing:.06em;line-height:1.2;}
+.sl-heading-jp::after{content:"";display:block;width:46px;height:4px;margin:10px auto 0;border-radius:2px;background:#8fd4ff;}
+
 .sl-panel{display:none;}
 .sl-panel.on{display:block;animation:slFade .5s ease;}
 @keyframes slFade{from{opacity:0;} to{opacity:1;}}
@@ -815,6 +820,8 @@ footer.foot{background:#0e2233;color:#8fa6b8;text-align:center;padding:26px 16px
         <button class="sl-tab" data-panel="p-special" type="button">特殊建築物定期調査</button>
         <button class="sl-tab" data-panel="p-after" type="button">アフターフォロー<span class="tab-sub">非常用照明交換工事</span></button>
       </div>
+
+      <div class="sl-heading"><span class="sl-heading-en">GALLERY</span><span class="sl-heading-jp">実績写真</span></div>
 
       <div class="sl-panel on" id="p-equip" data-cat="建築設備定期検査">
         <div class="sl-stage"><div class="sl-track">
